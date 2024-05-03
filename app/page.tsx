@@ -21,8 +21,8 @@ export default function Home() {
         <div className="flex flex-col items-center">
           <h2 className="text-xl py-5">Nos ouvertures du mois</h2>
           <Image
-            src="/ouverture-avril.png"
-            alt="Ouvertures du Donjon de Houdan au mois d'avril"
+            src="/ouverture-mai.png"
+            alt="Ouvertures du Donjon de Houdan au mois de mai"
             width={400}
             height={300}
           />
@@ -40,7 +40,6 @@ export default function Home() {
           <div className="my-4">
             <iframe
               id="haWidget"
-              allowTransparency
               src="https://www.helloasso.com/associations/association-le-donjon-de-houdan/evenements/the-police-vibrations-en-concert-au-donjon-de-houdan/widget-bouton"
               style={{ width: "100%", height: "70px", border: "none" }}
             ></iframe>
