@@ -19,10 +19,10 @@ export default function Home() {
       <hr className="w-1/2 border-gray-400 my-8" />
       <div className="flex flex-col lg:flex-row lg:gap-x-40">
         <div className="flex flex-col items-center">
-          <h2 className="text-xl py-5">Nos ouvertures du mois</h2>
+          <h2 className="text-xl py-5">Nos prochaines ouvertures</h2>
           <Image
-            src="/ouverture-mai.png"
-            alt="Ouvertures du Donjon de Houdan au mois de mai"
+            src="/ouverture-juin.png"
+            alt="Ouvertures du Donjon de Houdan au mois de juin"
             width={400}
             height={300}
           />
@@ -32,18 +32,18 @@ export default function Home() {
             Notre prochain concert le samedi 1er juin à 19h
           </h2>
           <Image
-            src="/concert-police-vibrations.png"
+            src="/concert-police-vibrations-complet.png"
             alt="Concert The Police Vibrations au Donjon de Houdan le samedi 1er juin à 19h"
             width={400}
             height={300}
           />
-          <div className="my-4">
+          {/* <div className="my-4">
             <iframe
               id="haWidget"
               src="https://www.helloasso.com/associations/association-le-donjon-de-houdan/evenements/the-police-vibrations-en-concert-au-donjon-de-houdan/widget-bouton"
               style={{ width: "100%", height: "70px", border: "none" }}
             ></iframe>
-          </div>
+          </div> */}
         </div>
       </div>
       <hr className="w-1/2 border-gray-400 my-8" />
