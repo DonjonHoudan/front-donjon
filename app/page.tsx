@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import { getHomePage } from "@/lib/api/resources/homepage";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 
-export default function Home() {
+export default async function Home() {
   return (
     <section className="flex flex-col justify-between items-center">
       <div className="flex flex-col items-center justify-center w-full lg:relative">
