@@ -18,8 +18,8 @@ export default async function Home() {
         <div>Notre site est actuellement en maintenance</div>
       </div>
       <hr className="w-1/2 border-gray-400 my-8" />
-      <div className="flex flex-col lg:flex-row lg:gap-x-40">
-        <div className="flex flex-col items-center">
+      <div className="flex flex-col lg:flex-row lg:gap-x-30">
+        <div className="flex flex-col items-center lg:w-1/2">
           <h2 className="text-xl py-5">Nos prochaines ouvertures</h2>
           <Image
             src="/ouverture-juin.png"
@@ -28,23 +28,39 @@ export default async function Home() {
             height={300}
           />
         </div>
-        <div className="flex flex-col items-center">
-          <h2 className="text-xl py-5">
-            Notre prochain concert le samedi 1er juin à 19h
-          </h2>
-          <Image
-            src="/concert-police-vibrations-complet.png"
-            alt="Concert The Police Vibrations au Donjon de Houdan le samedi 1er juin à 19h"
-            width={400}
-            height={300}
-          />
-          {/* <div className="my-4">
+        <div className="flex flex-col items-center lg:w-1/2 px-4">
+          <div className="flex flex-col items-center gap-y-4">
+            <h2 className="text-xl py-5">Nos prochains concerts</h2>
+            <h3 className="text-lg">Cathy Gringelli</h3>
+            <div>Samedi 7 septembre à 19h</div>
+            <div>
+              Venez découvrir, à la croisée d&apos;univers musicaux folk-rock,
+              balades irlandaises, baroque, jazz et traditionnel, ce quartet
+              voix et cordes.
+            </div>
             <iframe
               id="haWidget"
-              src="https://www.helloasso.com/associations/association-le-donjon-de-houdan/evenements/the-police-vibrations-en-concert-au-donjon-de-houdan/widget-bouton"
-              style={{ width: "100%", height: "70px", border: "none" }}
+              allowTransparency={true}
+              src="https://www.helloasso.com/associations/association-le-donjon-de-houdan/evenements/cathy-gringelli-quartet-en-concert-au-donjon-de-houdan/widget-bouton"
+              style={{ width: "100%", height: "70px", border: "none" } as React.CSSProperties}
             ></iframe>
-          </div> */}
+          </div>
+          <hr className="w-1/2 border-gray-400 my-8" />
+          <div className="flex flex-col items-center gap-y-4">
+            <h3 className="text-lg">RiND</h3>
+            <div>Samedi 12 octobre à 19h</div>
+            <div>
+              RiND pour Rock is Not Dead, telle est la devise de ce trio composé
+              de Thierry, Sébastien et Yannick, qui revisite les standards du
+              rock version électrique ou acoustique.
+            </div>
+            <iframe
+              id="haWidget"
+              allowTransparency={true}
+              src="https://www.helloasso.com/associations/association-le-donjon-de-houdan/evenements/rind-en-concert-au-donjon-de-houdan-1/widget-bouton"
+              style={{ width: "100%", height: "70px", border: "none" } as React.CSSProperties}
+            ></iframe>
+          </div>
         </div>
       </div>
       <hr className="w-1/2 border-gray-400 my-8" />
