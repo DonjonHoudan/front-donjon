@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getHomePage } from "@/lib/api/resources/homepage";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 
 export default async function Home() {
