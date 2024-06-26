@@ -21,8 +21,8 @@ export default async function Home() {
         <div className="flex flex-col items-center lg:w-1/2">
           <h2 className="text-xl py-5">Nos prochaines ouvertures</h2>
           <Image
-            src="/ouverture-juin.png"
-            alt="Ouvertures du Donjon de Houdan au mois de juin"
+            src="/ouvertures-juillet.png"
+            alt="Ouvertures du Donjon de Houdan au mois de juillet"
             width={400}
             height={300}
           />
