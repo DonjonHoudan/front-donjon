@@ -37,12 +37,7 @@ export default async function Home() {
               balades irlandaises, baroque, jazz et traditionnel, ce quartet
               voix et cordes.
             </div>
-            <iframe
-              id="haWidget"
-              allowTransparency={true}
-              src="https://www.helloasso.com/associations/association-le-donjon-de-houdan/evenements/cathy-gringelli-quartet-en-concert-au-donjon-de-houdan/widget-bouton"
-              style={{ width: "100%", height: "70px", border: "none" } as React.CSSProperties}
-            ></iframe>
+            <div className="font-bold text-red-600">CONCERT ANNULÉ</div>
           </div>
           <hr className="w-1/2 border-gray-400 my-8" />
           <div className="flex flex-col items-center gap-y-4">
@@ -57,7 +52,13 @@ export default async function Home() {
               id="haWidget"
               allowTransparency={true}
               src="https://www.helloasso.com/associations/association-le-donjon-de-houdan/evenements/rind-en-concert-au-donjon-de-houdan-1/widget-bouton"
-              style={{ width: "100%", height: "70px", border: "none" } as React.CSSProperties}
+              style={
+                {
+                  width: "100%",
+                  height: "70px",
+                  border: "none",
+                } as React.CSSProperties
+              }
             ></iframe>
           </div>
         </div>
