@@ -21,8 +21,8 @@ export default async function Home() {
         <div className="flex flex-col items-center lg:w-1/2">
           <h2 className="text-xl py-5">Nos prochaines ouvertures</h2>
           <Image
-            src="/ouvertures-juillet.png"
-            alt="Ouvertures du Donjon de Houdan au mois de juillet"
+            src="/ouvertures-aout.png"
+            alt="Ouvertures du Donjon de Houdan au mois de août"
             width={400}
             height={300}
           />
@@ -50,7 +50,6 @@ export default async function Home() {
             </div>
             <iframe
               id="haWidget"
-              allowTransparency={true}
               src="https://www.helloasso.com/associations/association-le-donjon-de-houdan/evenements/rind-en-concert-au-donjon-de-houdan-1/widget-bouton"
               style={
                 {
