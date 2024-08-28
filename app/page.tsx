@@ -1,71 +1,31 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getHomePage } from "@/lib/api/resources/homepage";
-import { FaFacebook, FaInstagram } from "react-icons/fa";
+import { ImageStrapi } from "@/components/imageStrapi";
 
 export default async function Home() {
+  const homepage = await getHomePage();
   return (
-    <section className="flex flex-col justify-between items-center">
-      <div className="flex flex-col items-center justify-center w-full lg:relative">
+    <section className="relative">
+      <div className="absolute top-[-100px] left-0 w-screen h-screen">
         <Image
-          src="/logo-donjon.png"
+          src="/donjon.jpg"
           alt="Donjon de Houdan"
-          width={150}
-          height={150}
-          className="lg:absolute top-4 left-4 mt-8 lg:mt-0"
+          width={1960}
+          height={1080}
+          className="h-full object-cover"
         />
-        <h1 className="text-3xl font-bold my-8">Le Donjon de Houdan</h1>
-        <div>Notre site est actuellement en maintenance</div>
       </div>
-      <hr className="w-1/2 border-gray-400 my-8" />
-      <div className="flex flex-col lg:flex-row lg:gap-x-40">
-        <div className="flex flex-col items-center">
-          <h2 className="text-xl py-5">Nos prochaines ouvertures</h2>
-          <Image
-            src="/ouverture-juin.png"
-            alt="Ouvertures du Donjon de Houdan au mois de juin"
-            width={400}
-            height={300}
+      <div className="absolute top-[50px] right-[150px] h-[700px] w-[475px] object-cover z-10">
+        <Link href={homepage.lien ?? ""}>
+          <ImageStrapi
+            src={homepage.image.data.attributes.url}
+            alt="Contenu mis en avant"
+            width={475}
+            height={700}
+            className="rounded-xl border border-black drop-shadow-xl"
           />
-        </div>
-        <div className="flex flex-col items-center">
-          <h2 className="text-xl py-5">
-            Notre prochain concert le samedi 1er juin à 19h
-          </h2>
-          <Image
-            src="/concert-police-vibrations-complet.png"
-            alt="Concert The Police Vibrations au Donjon de Houdan le samedi 1er juin à 19h"
-            width={400}
-            height={300}
-          />
-          {/* <div className="my-4">
-            <iframe
-              id="haWidget"
-              src="https://www.helloasso.com/associations/association-le-donjon-de-houdan/evenements/the-police-vibrations-en-concert-au-donjon-de-houdan/widget-bouton"
-              style={{ width: "100%", height: "70px", border: "none" }}
-            ></iframe>
-          </div> */}
-        </div>
-      </div>
-      <hr className="w-1/2 border-gray-400 my-8" />
-      <div className="w-full flex flex-col items-center mb-4 text-center">
-        <div>
-          Suivez-nous sur nos réseaux pour rester informé de nos actualités
-        </div>
-        <div className="flex gap-x-4 mt-2">
-          <Link
-            href="https://www.facebook.com/ledonjondehoudan"
-            target="_blank"
-          >
-            <FaFacebook className="text-[40px]" />
-          </Link>
-          <Link
-            href="https://www.instagram.com/donjondehoudan/"
-            target="_blank"
-          >
-            <FaInstagram className="text-[40px]" />
-          </Link>
-        </div>
+        </Link>
       </div>
     </section>
   );
