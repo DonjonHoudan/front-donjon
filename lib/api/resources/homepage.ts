@@ -6,7 +6,7 @@ type HomePage = {
 };
 
 export async function getHomePage(): Promise<Article> {
-  const resultat = await GET<ReponseStrapi<HomePage>>("/home-page?populate=*");
+  const resultat = await GET<ReponseStrapi<HomePage>>("/home-page?populate[article][populate]=image");
 
   if (resultat.data === undefined) {
     throw new Error("Erreur lors de la récupération de la page d'accueil");
