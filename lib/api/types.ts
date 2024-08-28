@@ -26,4 +26,10 @@ export type ReponseStrapi<T> = {
 export type Article = {
   titre: string;
   contenu: string;
+  image: ReponseStrapi<Image>;
+  lien?: string;
+};
+
+export type Image = {
+  url: string;
 };
