@@ -21,27 +21,23 @@ export default async function Home() {
         <div className="flex flex-col items-center lg:w-1/2">
           <h2 className="text-xl py-5">Nos prochaines ouvertures</h2>
           <Image
-            src="/ouvertures-aout.png"
-            alt="Ouvertures du Donjon de Houdan au mois de août"
+            src="/ouverture-septembre.jpg"
+            alt="Ouvertures du Donjon de Houdan au mois de septembre"
             width={400}
             height={300}
           />
         </div>
         <div className="flex flex-col items-center lg:w-1/2 px-4">
           <div className="flex flex-col items-center gap-y-4">
-            <h2 className="text-xl py-5">Nos prochains concerts</h2>
-            <h3 className="text-lg">Cathy Gringelli</h3>
-            <div>Samedi 7 septembre à 19h</div>
-            <div>
-              Venez découvrir, à la croisée d&apos;univers musicaux folk-rock,
-              balades irlandaises, baroque, jazz et traditionnel, ce quartet
-              voix et cordes.
+            <div className="flex flex-col items-center gap-y-4">
+              <h2 className="text-xl py-5">Nos prochains concerts</h2>
             </div>
-            <div className="font-bold text-red-600">CONCERT ANNULÉ</div>
-          </div>
-          <hr className="w-1/2 border-gray-400 my-8" />
-          <div className="flex flex-col items-center gap-y-4">
-            <h3 className="text-lg">RiND</h3>
+            <Image
+              src="/concert_RIND_2024.png"
+              alt="Concert RiND au Donjon de Houdan le 12 octobre 2024"
+              width={400}
+              height={300}
+            />
             <div>Samedi 12 octobre à 19h</div>
             <div>
               RiND pour Rock is Not Dead, telle est la devise de ce trio composé
