@@ -23,6 +23,7 @@ export const ImageStrapi = ({
       width={width}
       height={height}
       className={className}
+      layout="responsive"
     />
   );
 };
