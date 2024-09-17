@@ -2,27 +2,31 @@ import Image from "next/image";
 import Link from "next/link";
 import { getHomePage } from "@/lib/api/resources/homepage";
 import { ImageStrapi } from "@/components/imageStrapi";
+import { cn } from "@/lib/utils/cn";
 
 export default async function Home() {
   const homepage = await getHomePage();
   return (
-    <section className="relative">
-      <div className="absolute top-[-100px] left-0 w-screen h-screen">
+    <section className="relative h-[calc(100vh-75px)]">
+      <div className="absolute top-0 lg:top-[-75px] left-0 h-full w-full">
         <Image
           src="/donjon.jpg"
           alt="Donjon de Houdan"
           width={1960}
-          height={1080}
-          className="h-full object-cover"
+          height={1000}
+          className="w-full h-[100vh] object-cover"
         />
       </div>
-      <div className="absolute top-[50px] right-[150px] h-[700px] w-[475px] object-cover z-10">
+      <div className={cn(
+        "absolute top-[15vh] right-[10vw] max-h-[70vh] max-w-[80vw] object-cover z-10",
+        "lg:top-[5vh] lg:right-[10vw] lg:max-h-[60vh] lg:max-w-[25vw]",
+        )}>
         <Link href={homepage.lien ?? ""}>
           <ImageStrapi
             src={homepage.image.data.attributes.url}
             alt="Contenu mis en avant"
-            width={475}
-            height={700}
+            width={300}
+            height={300}
             className="rounded-xl border border-black drop-shadow-xl"
           />
         </Link>
