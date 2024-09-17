@@ -3,17 +3,10 @@ import Image from "next/image";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 import { cn } from "@/lib/utils/cn";
 
-export function Navbar() {
+export function NavbarHome() {
   return (
-    <div className={cn("hidden", "lg:block relative")}>
-      <Image
-        src="/donjon.jpg"
-        alt="Donjon de Houdan"
-        width={1960}
-        height={100}
-        className="absolute top-0 left-0 w-full h-[200px] object-cover"
-      />
-      <div className="relative top-[30px] flex items-center justify-between px-[30px] h-[75px] bg-black bg-opacity-60 text-white">
+    <div className={cn("hidden", "lg:block relative z-10")}>
+      <div className="flex items-center justify-between px-[30px] h-[75px]">
         <Link href="/">
           <Image
             src="/logo-donjon.png"
