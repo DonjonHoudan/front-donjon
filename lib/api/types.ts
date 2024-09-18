@@ -1,3 +1,5 @@
+import React from "react";
+
 export enum AxiosRequestType {
   GET = "get",
   POST = "post",
@@ -13,20 +15,31 @@ export type ClientResponse<T> = {
 
 export type Client = <TBodyResponse>(
   method: AxiosRequestType,
-  url: string,
+  url: string
 ) => Promise<ClientResponse<TBodyResponse>>;
 
 export type ReponseStrapi<T> = {
-  data: {
-    id: number;
-    attributes: T;
+  id: number;
+  attributes: T;
+};
+
+export type PageAccueil = {
+  article: {
+    data: ReponseStrapi<Article>;
   };
+};
+
+export type PageDonjon = {
+  titre: string;
+  contenu: React.ReactNode;
 };
 
 export type Article = {
   titre: string;
   contenu: string;
-  image: ReponseStrapi<Image>;
+  image: {
+    data: ReponseStrapi<Image>;
+  };
   lien?: string;
 };
 

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function NotFound() {
   return (
-    <section className="flex flex-col items-center justify-center mt-[-100px] h-[100vh] gap-y-[20px]">
+    <section className="flex flex-col items-center justify-center mt-[-75px] h-[100vh] gap-y-[20px]">
       <div>La page que vous demandez n&#39;éxiste pas</div>
       <Link href="/" className="flex flex-col items-center justify-content gap-y-[20px]">
         <Image

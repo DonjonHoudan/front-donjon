@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
-import "./globals.css";
-import { NavbarHome } from "./components/navbarHome";
-import { NavbarMobile } from "./components/navbarMobile";
+import "../globals.css";
+import { Navbar } from "@/components/navbar";
+import { NavbarMobile } from "@/components/navbarMobile";
 
 const nunito = Nunito({ subsets: ["latin"] });
 
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: "Donjon de Houdan, Yvelines, France",
 };
 
-export default function RootLayout({
+export default function ContentLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -27,7 +27,7 @@ export default function RootLayout({
         />
       </head>
       <body className={nunito.className}>
-        <NavbarHome />
+        <Navbar />
         <NavbarMobile />
         {children}
       </body>
