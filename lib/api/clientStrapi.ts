@@ -16,7 +16,7 @@ const client: Client = async (
       url,
     });
 
-    return res;
+    return res.data;
   } catch (err: any) {
     return {
       statusWIP: err,
