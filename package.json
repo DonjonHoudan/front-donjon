@@ -6,14 +6,18 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky"
   },
   "dependencies": {
+    "@strapi/blocks-react-renderer": "^1.0.1",
     "axios": "^1.7.7",
     "next": "14.2.13",
+    "clsx": "^2.1.1",
     "react": "^18",
     "react-dom": "^18",
-    "react-icons": "^5.3.0"
+    "react-icons": "^5.3.0",
+    "tailwind-merge": "^2.5.2"
   },
   "devDependencies": {
     "@types/node": "^22",
@@ -21,6 +25,7 @@
     "@types/react-dom": "^18",
     "eslint": "^8.57.0",
     "eslint-config-next": "14.2.13",
+    "husky": "^9.1.6",
     "postcss": "^8",
     "tailwindcss": "^3.4.10",
     "typescript": "^5"
