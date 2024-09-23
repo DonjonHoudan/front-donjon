@@ -1,4 +1,4 @@
-import React from "react";
+import { BlocksContent } from "@strapi/blocks-react-renderer";
 
 export enum AxiosRequestType {
   GET = "get",
@@ -31,7 +31,7 @@ export type PageAccueil = {
 
 export type PageDonjon = {
   titre: string;
-  contenu: React.ReactNode;
+  contenu: BlocksContent;
 };
 
 export type Article = {

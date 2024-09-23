@@ -5,13 +5,13 @@ import { cn } from "@/lib/utils/cn";
 
 export function Navbar() {
   return (
-    <div className={cn("hidden", "lg:block relative")}>
+    <div className={cn("hidden", "lg:block lg:relative lg:h-[200px]")}>
       <Image
         src="/donjon.jpg"
         alt="Donjon de Houdan"
         width={1960}
         height={100}
-        className="absolute top-0 left-0 w-full h-[200px] object-cover"
+        className="absolute top-0 left-0 w-full h-full object-cover"
       />
       <div className="relative top-[30px] flex items-center justify-between px-[30px] h-[75px] bg-black bg-opacity-60 text-white">
         <Link href="/">

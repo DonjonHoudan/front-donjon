@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { FaDungeon, FaRegCalendarAlt, FaRegEnvelope } from "react-icons/fa";
 import { GoMegaphone } from "react-icons/go";
@@ -7,7 +6,7 @@ import { LuClock2 } from "react-icons/lu";
 export function NavbarMobile() {
   return (
     <div className="relative lg:hidden">
-      <div className="fixed flex items-center justify-between bottom-0 left-0 h-[100px] px-[30px] w-full backdrop-blur-lg z-20">
+      <div className="fixed flex items-center justify-between bottom-0 left-0 h-[100px] px-[30px] w-full backdrop-blur-lg z-20 rounded-t-xl">
         <BoutonMenu
           icone={<FaDungeon className="h-full w-full" />}
           href="/le-donjon"
