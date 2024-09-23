@@ -7,6 +7,10 @@ const nextConfig = {
         hostname: 'localhost',
         port: '1337',
       },
+      {
+        protocol: 'https',
+        hostname: 'strapi.api.ledonjondehoudan.fr',
+      },
     ],
   },
 };
