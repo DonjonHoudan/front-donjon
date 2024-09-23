@@ -5,7 +5,8 @@ import { ImageStrapi } from "@/components/imageStrapi";
 import { cn } from "@/lib/utils/cn";
 
 export default async function Home() {
-  const homepage = await getHomePage();
+  const data = await getHomePage();
+
   return (
     <section className="relative h-[calc(100vh-75px)]">
       <div className="absolute top-0 lg:top-[-75px] left-0 h-full w-full">
@@ -21,9 +22,9 @@ export default async function Home() {
         "absolute top-[15vh] right-[10vw] max-h-[70vh] max-w-[80vw] object-cover z-10",
         "lg:top-[5vh] lg:right-[10vw] lg:max-h-[60vh] lg:max-w-[25vw]",
         )}>
-        <Link href={homepage.lien ?? ""}>
+        <Link href={data.article.data.attributes.lien ?? ""}>
           <ImageStrapi
-            src={homepage.image.data.attributes.url}
+            src={data.article.data.attributes.image.data.attributes.url}
             alt="Contenu mis en avant"
             width={300}
             height={300}
