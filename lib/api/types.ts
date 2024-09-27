@@ -34,6 +34,22 @@ export type PageDonjon = {
   contenu: BlocksContent;
 };
 
+export type PageProgrammation = {
+  id: number;
+  attributes: {
+    titre: string;
+    slug: string;
+    lien_billeterie: string;
+    descriptif: BlocksContent;
+    image: {
+      data: ReponseStrapi<Image>;
+    };
+    image_video_secondaire: {
+      data: ReponseStrapi<Image>;
+    }
+  };
+};
+
 export type Article = {
   titre: string;
   contenu: string;
