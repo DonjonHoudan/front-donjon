@@ -19,7 +19,6 @@ const client: Client = async (
     return res.data;
   } catch (err: any) {
     return {
-      statusWIP: err,
       status: err.response?.status,
       errorMessage: err.response?.data.errorMessage,
     };
