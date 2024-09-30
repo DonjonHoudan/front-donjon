@@ -39,7 +39,10 @@ export function RichTextStrapi({ content }: RichTextStrapiProps) {
         },
         paragraph: ({ children }) => (
           <p className="text-justify">{children}</p>
-        )
+        ),
+        list: ({ children }) => (
+          <ul className="list-disc list-inside pl-[20px]">{children}</ul>
+        ),
       }}
     />
   );
