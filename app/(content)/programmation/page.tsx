@@ -12,11 +12,11 @@ export default async function Programmation() {
   return (
     <section>
       <H1 className="my-[50px] text-center">Programmation</H1>
-      <div className={cn("flex flex-wrap justify-around px-[10px] mb-[130px] gap-[30px]", "lg:px-[20vh] lg:mb-[50px]")}>
+      <div className={cn("flex flex-wrap justify-around mb-[130px] gap-[30px]", "lg:px-[20vh] lg:mb-[50px]")}>
         {data.map((evenement) => (
           <Card
             key={evenement.id}
-            className="flex flex-col items-center justify-between gap-y-[20px] w-[400px]"
+            className="flex flex-col items-center gap-y-[20px] w-[90vw] lg:w-[400px]"
           >
             <H2 className="text-center">{evenement.attributes.titre}</H2>
             <Link href={`programmation/${evenement.attributes.slug}`} className="w-[350px]">
@@ -25,6 +25,7 @@ export default async function Programmation() {
                 alt={evenement.attributes.titre}
                 width={300}
                 height={300}
+                className="w-full"
               />
             </Link>
             {evenement.attributes.lien_billeterie && (

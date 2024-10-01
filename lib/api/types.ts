@@ -36,27 +36,38 @@ export type PageDonjon = {
 
 export type PageProgrammation = {
   id: number;
-  attributes: {
-    titre: string;
-    slug: string;
-    lien_billeterie: string;
-    descriptif: BlocksContent;
-    image: {
-      data: ReponseStrapi<Image>;
-    };
-    image_video_secondaire: {
-      data: ReponseStrapi<Image>;
-    }
+  attributes: Programmation;
+};
+
+export type PageActualites = {
+  articles: {
+    data: ReponseStrapi<Article>[];
   };
 };
 
 export type Article = {
   titre: string;
-  contenu: string;
+  contenu: BlocksContent;
+  slug: string;
   image: {
     data: ReponseStrapi<Image>;
   };
-  lien?: string;
+  programmation: {
+    data?: ReponseStrapi<Programmation>;
+  };
+};
+
+type Programmation = {
+  titre: string;
+  slug: string;
+  lien_billeterie: string;
+  descriptif: BlocksContent;
+  image: {
+    data: ReponseStrapi<Image>;
+  };
+  image_video_secondaire: {
+    data: ReponseStrapi<Image>;
+  };
 };
 
 export type Image = {
