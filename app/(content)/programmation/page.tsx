@@ -19,13 +19,10 @@ export default async function Programmation() {
             className="flex flex-col items-center gap-y-[20px] w-[90vw] lg:w-[400px]"
           >
             <H2 className="text-center">{evenement.attributes.titre}</H2>
-            <Link href={`programmation/${evenement.attributes.slug}`} className="w-[350px]">
+            <Link href={`programmation/${evenement.attributes.slug}`} className="relative block w-[300px] h-[424px]">
               <ImageStrapi
                 src={evenement.attributes.image.data.attributes.url}
                 alt={evenement.attributes.titre}
-                width={300}
-                height={300}
-                className="w-full"
               />
             </Link>
             {evenement.attributes.lien_billeterie && (

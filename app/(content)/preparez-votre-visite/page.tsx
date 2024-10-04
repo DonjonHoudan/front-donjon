@@ -4,7 +4,6 @@ import { getPageVisite } from "@/lib/api/resources/visite";
 
 export default async function PreparezVotreVisite() {
   const data = await getPageVisite();
-  console.log("🚀 ~ PreparezVotreVisite ~ data:", data)
 
   return (
     <section className="min-h-screen lg:mt-[-200px] lg:pt-[200px]">

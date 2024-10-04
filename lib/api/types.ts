@@ -72,4 +72,9 @@ type Programmation = {
 
 export type Image = {
   url: string;
+  formats: {
+    small: {
+      url: string;
+    };
+  };
 };

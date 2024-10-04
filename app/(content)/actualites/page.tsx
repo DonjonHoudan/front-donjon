@@ -28,14 +28,11 @@ export default async function Actualites() {
               <>
                 <Link
                   href={`programmation/${evenement.attributes.slug}`}
-                  className="w-[350px]"
+                  className="relative block w-[300px] h-[424px]"
                 >
                   <ImageStrapi
                     src={evenement.attributes.image.data.attributes.url}
                     alt={evenement.attributes.titre}
-                    width={300}
-                    height={300}
-                    className="w-full"
                   />
                 </Link>
                 {evenement.attributes.programmation.data.attributes
@@ -53,14 +50,11 @@ export default async function Actualites() {
             ) : (
               <Link
                 href={`actualites/${evenement.attributes.slug}`}
-                className="w-[350px]"
+                className="relative block w-[300px] h-[424px]"
               >
                 <ImageStrapi
                   src={evenement.attributes.image.data.attributes.url}
                   alt={evenement.attributes.titre}
-                  width={300}
-                  height={300}
-                  className="w-full"
                 />
               </Link>
             )}

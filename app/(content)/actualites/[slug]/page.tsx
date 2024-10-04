@@ -12,7 +12,6 @@ type EvenementProps = {
 
 export default async function Evenement({ params }: EvenementProps) {
   const data = await getActualite(params.slug);
-  console.log("🚀 ~ Evenement ~ data:", data)
 
   return (
     <section>
@@ -24,13 +23,11 @@ export default async function Evenement({ params }: EvenementProps) {
         )}
       >
         <RichTextStrapi content={data.contenu} />
-        <div className="w-[350px] lg:w-[600px]">
+        <div className="relative block w-[350px] h-[494px] lg:w-[600px] lg:h-[848px]">
           <ImageStrapi
             src={data.image.data.attributes.url}
             alt={data.titre}
-            width={525}
-            height={525}
-            className="w-full rounded"
+            className="rounded"
           />
         </div>
       </div>

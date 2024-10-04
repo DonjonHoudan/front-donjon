@@ -29,13 +29,11 @@ export default async function Evenement({ params }: EvenementProps) {
             Réserver
           </BoutonLien>
         )}
-        <div className="w-[350px] lg:w-[600px]">
+        <div className="relative block w-[350px] h-[494px] lg:w-[600px] lg:h-[848px]">
           <ImageStrapi
             src={data.attributes.image.data.attributes.url}
             alt={data.attributes.titre}
-            width={525}
-            height={525}
-            className="w-full rounded"
+            className="rounded"
           />
         </div>
       </div>
