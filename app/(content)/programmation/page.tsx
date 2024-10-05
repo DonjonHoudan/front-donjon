@@ -10,7 +10,7 @@ export default async function Programmation() {
   const data = await getPageProgrammation();
 
   return (
-    <section>
+    <section className="min-h-screen lg:mt-[-200px] lg:pt-[200px]">
       <H1 className="my-[50px] text-center">Programmation</H1>
       <div className={cn("flex flex-wrap justify-around mb-[130px] gap-[30px]", "lg:px-[20vh] lg:mb-[50px]")}>
         {data.map((evenement) => (
