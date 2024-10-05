@@ -5,15 +5,28 @@ import { STRAPI_URL } from "@/lib/constants";
 const client: Client = async (
   method = AxiosRequestType.GET,
   url = "",
+  data = null,
+  apiKey = undefined,
 ) => {
   const axiosInstance = axios.create({
     baseURL: STRAPI_URL,
+  });
+
+  axiosInstance.interceptors.request.use((config) => {
+    const token = apiKey;
+
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+
+    return config;
   });
 
   try {
     const res = await axiosInstance({
       method,
       url,
+      data,
     });
 
     return res.data;
@@ -27,4 +40,8 @@ const client: Client = async (
 
 export function GET<TBodyResponse>(url: string) {
   return client<TBodyResponse>(AxiosRequestType.GET, url);
+}
+
+export function POST<TBodyResponse, TPayload>(url: string, data: TPayload, apiKey: string) {
+  return client<TBodyResponse>(AxiosRequestType.POST, url, data, apiKey);
 }

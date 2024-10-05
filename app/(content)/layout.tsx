@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
-import "../globals.css";
+import { PrimeReactProvider } from "primereact/api";
 import { Navbar } from "@/components/navbar";
 import { NavbarMobile } from "@/components/navbarMobile";
+import "../globals.css";
+import "primereact/resources/primereact.min.css";
+import "primereact/resources/themes/lara-light-indigo/theme.css";
 
 const nunito = Nunito({ subsets: ["latin"] });
 
@@ -29,7 +32,7 @@ export default function ContentLayout({
       <body className={nunito.className}>
         <Navbar />
         <NavbarMobile />
-        {children}
+        <PrimeReactProvider>{children}</PrimeReactProvider>
       </body>
     </html>
   );
