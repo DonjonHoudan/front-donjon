@@ -10,7 +10,7 @@ export default async function Actualites() {
   const data = await getPageActualites();
 
   return (
-    <section>
+    <section className="min-h-screen lg:mt-[-200px] lg:pt-[200px]">
       <H1 className="my-[50px] text-center">Actualités</H1>
       <div
         className={cn(
