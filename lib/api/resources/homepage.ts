@@ -1,5 +1,11 @@
 import { GET } from "../clientStrapi";
-import { PageAccueil, ReponseStrapi } from "../types";
+import { Article, ReponseStrapi } from "../types";
+
+export type PageAccueil = {
+  article: {
+    data: ReponseStrapi<Article>;
+  };
+};
 
 export async function getHomePage(): Promise<PageAccueil> {
   const resultat = await GET<ReponseStrapi<PageAccueil>>("/home-page?populate[article][populate]=image");
