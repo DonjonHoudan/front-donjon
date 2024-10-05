@@ -5,7 +5,7 @@ import { STRAPI_URL } from "@/lib/constants";
 const client: Client = async (
   method = AxiosRequestType.GET,
   url = "",
-  data = null,
+  data = undefined,
   apiKey = undefined,
 ) => {
   const axiosInstance = axios.create({

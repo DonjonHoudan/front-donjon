@@ -13,42 +13,16 @@ export type ClientResponse<T> = {
   errorMessage?: string;
 };
 
-export type Client = <TBodyResponse>(
+export type Client = <TBodyResponse, TData = any>(
   method: AxiosRequestType,
   url: string,
-  data?: any, // à revoir
+  data?: TData,
   apiKey?: string
 ) => Promise<ClientResponse<TBodyResponse>>;
 
 export type ReponseStrapi<T> = {
   id: number;
   attributes: T;
-};
-
-export type PageAccueil = {
-  article: {
-    data: ReponseStrapi<Article>;
-  };
-};
-
-export type PageDonjon = {
-  titre: string;
-  contenu: BlocksContent;
-};
-
-export type PageProgrammation = {
-  id: number;
-  attributes: Programmation;
-};
-
-export type PageActualites = {
-  articles: {
-    data: ReponseStrapi<Article>[];
-  };
-};
-
-export type PageContact = {
-  contenu: BlocksContent;
 };
 
 export type Article = {
@@ -63,7 +37,7 @@ export type Article = {
   };
 };
 
-type Programmation = {
+export type Programmation = {
   titre: string;
   slug: string;
   lien_billeterie: string;
@@ -82,13 +56,5 @@ export type Image = {
     small: {
       url: string;
     };
-  };
-};
-
-export type SendMail = {
-  data: {
-    email: string;
-    objet: string;
-    message: string;
   };
 };

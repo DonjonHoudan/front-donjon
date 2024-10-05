@@ -1,5 +1,10 @@
 import { GET } from "../clientStrapi";
-import { PageProgrammation } from "../types";
+import { Programmation } from "../types";
+
+export type PageProgrammation = {
+  id: number;
+  attributes: Programmation;
+};
 
 export async function getPageProgrammation(): Promise<PageProgrammation[]> {
   const resultat = await GET<PageProgrammation[]>("/programmations?populate[image][populate]=image");

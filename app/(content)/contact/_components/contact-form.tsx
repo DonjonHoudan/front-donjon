@@ -7,7 +7,7 @@ import { InputTextarea } from "primereact/inputtextarea";
 import { FloatLabel } from "primereact/floatlabel";
 import { Button } from "primereact/button";
 import { postMail } from "@/lib/api/resources/contact";
-import { SendMail } from "@/lib/api/types";
+import { SendMail } from "@/lib/api/resources/contact";
 
 export function ContactForm() {
   const validationSchema = Yup.object().shape({
