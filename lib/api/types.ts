@@ -15,7 +15,9 @@ export type ClientResponse<T> = {
 
 export type Client = <TBodyResponse>(
   method: AxiosRequestType,
-  url: string
+  url: string,
+  data?: any, // à revoir
+  apiKey?: string
 ) => Promise<ClientResponse<TBodyResponse>>;
 
 export type ReponseStrapi<T> = {
@@ -43,6 +45,10 @@ export type PageActualites = {
   articles: {
     data: ReponseStrapi<Article>[];
   };
+};
+
+export type PageContact = {
+  contenu: BlocksContent;
 };
 
 export type Article = {
@@ -76,5 +82,13 @@ export type Image = {
     small: {
       url: string;
     };
+  };
+};
+
+export type SendMail = {
+  data: {
+    email: string;
+    objet: string;
+    message: string;
   };
 };
