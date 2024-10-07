@@ -1,5 +1,6 @@
 import { GET } from "../clientStrapi";
-import { PageDonjon, ReponseStrapi } from "../types";
+import { ReponseStrapi } from "../types";
+import { PageDonjon } from "./donjon";
 
 export async function getPageVisite(): Promise<PageDonjon> {
   const resultat = await GET<ReponseStrapi<PageDonjon>>("/page-visite");

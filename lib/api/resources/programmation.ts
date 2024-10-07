@@ -1,6 +1,5 @@
 import { GET } from "../clientStrapi";
-import { PageProgrammation } from "../types";
-
+import { PageProgrammation } from "./programmations";
 
 export async function getProgrammation(slug: string): Promise<PageProgrammation> {
   const resultat = await GET<PageProgrammation[]>(`/programmations?filters[slug][$eq]=${slug}&populate[image][populate]=image`);
