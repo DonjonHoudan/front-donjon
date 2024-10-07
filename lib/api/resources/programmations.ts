@@ -7,10 +7,13 @@ export type PageProgrammation = {
 };
 
 export async function getPageProgrammation(): Promise<PageProgrammation[]> {
-  const resultat = await GET<PageProgrammation[]>("/programmations?populate[image][populate]=image");
+  const resultat = await GET<PageProgrammation[]>(
+    "/programmations?populate[image][populate]=image"
+  );
 
   if (resultat.data === undefined) {
-    throw new Error("Erreur lors de la récupération de la page programmation");
+    console.error("Erreur lors de la récupération de la page programmation");
+    return [];
   }
 
   return resultat.data;

@@ -1,3 +1,4 @@
+import { redirect } from "next/navigation";
 import { ImageStrapi } from "@/components/imageStrapi";
 import { RichTextStrapi } from "@/components/richTextStrapi";
 import { H1 } from "@/components/titles";
@@ -12,6 +13,10 @@ type EvenementProps = {
 
 export default async function Evenement({ params }: EvenementProps) {
   const data = await getActualite(params.slug);
+
+  if (!data) {
+    redirect("/404");
+  }
 
   return (
     <section>

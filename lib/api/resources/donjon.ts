@@ -7,11 +7,12 @@ export type PageDonjon = {
   contenu: BlocksContent;
 };
 
-export async function getPageDonjon(): Promise<PageDonjon> {
+export async function getPageDonjon(): Promise<PageDonjon|null> {
   const resultat = await GET<ReponseStrapi<PageDonjon>>("/page-donjon");
 
   if (resultat.data === undefined) {
-    throw new Error("Erreur lors de la récupération de la page du Donjon");
+    console.error("Erreur lors de la récupération de la page du Donjon");
+    return null;
   }
 
   return resultat.data.attributes;

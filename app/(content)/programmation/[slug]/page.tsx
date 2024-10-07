@@ -1,3 +1,4 @@
+import { redirect } from "next/navigation";
 import { BoutonLien } from "@/components/boutonLien";
 import { ImageStrapi } from "@/components/imageStrapi";
 import { RichTextStrapi } from "@/components/richTextStrapi";
@@ -13,6 +14,10 @@ type EvenementProps = {
 
 export default async function Evenement({ params }: EvenementProps) {
   const data = await getProgrammation(params.slug);
+
+  if (!data) {
+    redirect("/404");
+  }
 
   return (
     <section>

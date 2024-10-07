@@ -24,7 +24,7 @@ export default async function Home() {
           "lg:top-[5vh] lg:right-[10vw]"
         )}
       >
-        {data.article.data.attributes.slug && (
+        {data?.article.data.attributes.slug && (
           <Link href={`actualites/${data.article.data.attributes.slug}`} className="relative block w-[80vw] h-[55vh] lg:w-[450px] lg:h-[636px]">
             <ImageStrapi
               src={data.article.data.attributes.image.data.attributes.url}
