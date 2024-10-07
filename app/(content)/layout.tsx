@@ -3,6 +3,7 @@ import { Nunito } from "next/font/google";
 import { PrimeReactProvider } from "primereact/api";
 import { Navbar } from "@/components/navbar";
 import { NavbarMobile } from "@/components/navbarMobile";
+import { Analytics } from "@vercel/analytics/next";
 import "../globals.css";
 import "primereact/resources/primereact.min.css";
 import "primereact/resources/themes/lara-light-indigo/theme.css";
@@ -33,6 +34,7 @@ export default function ContentLayout({
         <Navbar />
         <NavbarMobile />
         <PrimeReactProvider>{children}</PrimeReactProvider>
+        <Analytics />
       </body>
     </html>
   );
