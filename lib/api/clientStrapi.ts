@@ -6,15 +6,13 @@ const client: Client = async (
   method = AxiosRequestType.GET,
   url = "",
   data = undefined,
-  apiKey = undefined,
+  token = undefined,
 ) => {
   const axiosInstance = axios.create({
     baseURL: STRAPI_URL,
   });
 
   axiosInstance.interceptors.request.use((config) => {
-    const token = apiKey;
-
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }

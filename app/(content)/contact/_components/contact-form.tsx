@@ -30,7 +30,10 @@ export function ContactForm() {
       const mail: SendMail = {
         data: values,
       };
-      postMail(mail).then(() => {
+      fetch("/api/contact", {
+        method: "POST",
+        body: JSON.stringify(mail),
+      }).then(() => {
         resetForm();
       });
     },

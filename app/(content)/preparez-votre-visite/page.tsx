@@ -1,9 +1,14 @@
+import { redirect } from "next/navigation";
 import { RichTextStrapi } from "@/components/richTextStrapi";
 import { H1 } from "@/components/titles";
 import { getPageVisite } from "@/lib/api/resources/visite";
 
 export default async function PreparezVotreVisite() {
   const data = await getPageVisite();
+
+  if (!data) {
+    redirect("/404");
+  }
 
   return (
     <section className="min-h-screen lg:mt-[-200px] lg:pt-[200px]">

@@ -1,13 +1,18 @@
+import Link from "next/link";
+import { redirect } from "next/navigation";
 import { BoutonLien } from "@/components/boutonLien";
 import { Card } from "@/components/card";
 import { ImageStrapi } from "@/components/imageStrapi";
 import { H1, H2 } from "@/components/titles";
 import { getPageActualites } from "@/lib/api/resources/actualites";
 import { cn } from "@/lib/utils/cn";
-import Link from "next/link";
 
 export default async function Actualites() {
   const data = await getPageActualites();
+
+  if (!data) {
+    redirect("/404");
+  }
 
   return (
     <section className="min-h-screen lg:mt-[-200px] lg:pt-[200px]">
