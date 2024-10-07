@@ -1,6 +1,5 @@
 import { GET, POST } from "../clientStrapi";
 import { ReponseStrapi } from "../types";
-import { STRAPI_API_KEY } from "@/lib/constants";
 import { BlocksContent } from "@strapi/blocks-react-renderer";
 
 export type PageContact = {
@@ -26,16 +25,20 @@ export type SendMail = {
   };
 };
 
-export async function postMail(data: SendMail) {
-  if (!STRAPI_API_KEY) {
+type ReponseMail = {
+  status: Number;
+  errorMessage?: string;
+};
+
+export async function postMail(data: SendMail, token: string): Promise<ReponseMail> {
+  if (!token) {
     throw new Error("Clé API STRAPI manquante");
   }
   
-  const resultat = await POST("/contacts", data, STRAPI_API_KEY);
+  const resultat = await POST("/contacts", data, token);
 
-  if (resultat.data === undefined) {
-    throw new Error("Erreur lors de l'envoi du mail");
-  }
-
-  return resultat.data;
+  return {
+    status: resultat.status,
+    errorMessage: resultat.errorMessage,
+  };
 }
