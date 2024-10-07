@@ -7,11 +7,12 @@ export type PageAccueil = {
   };
 };
 
-export async function getHomePage(): Promise<PageAccueil> {
+export async function getHomePage(): Promise<PageAccueil|null> {
   const resultat = await GET<ReponseStrapi<PageAccueil>>("/home-page?populate[article][populate]=image");
 
   if (resultat.data === undefined) {
-    throw new Error("Erreur lors de la récupération de la page d'accueil");
+    console.error("Erreur lors de la récupération de la page d'accueil");
+    return null;
   }
 
   return resultat.data?.attributes;

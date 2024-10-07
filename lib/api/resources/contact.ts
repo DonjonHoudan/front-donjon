@@ -7,11 +7,12 @@ export type PageContact = {
   contenu: BlocksContent;
 };
 
-export async function getPageContact(): Promise<PageContact> {
+export async function getPageContact(): Promise<PageContact|null> {
   const resultat = await GET<ReponseStrapi<PageContact>>(`/page-contact`);
 
   if (resultat.data === undefined) {
-    throw new Error("Erreur lors de la récupération de la page contact");
+    console.error("Erreur lors de la récupération de la page contact");
+    return null;
   }
 
   return resultat.data.attributes;

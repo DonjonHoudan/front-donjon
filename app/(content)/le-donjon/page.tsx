@@ -1,9 +1,14 @@
+import { redirect } from "next/navigation";
 import { RichTextStrapi } from "@/components/richTextStrapi";
 import { H1 } from "@/components/titles";
 import { getPageDonjon } from "@/lib/api/resources/donjon";
 
 export default async function LeDonjon() {
   const data = await getPageDonjon();
+
+  if (!data) {
+    redirect("/404");
+  }
 
   return (
     <section className="min-h-screen lg:mt-[-200px] lg:pt-[200px]">
