@@ -5,24 +5,8 @@ import { STRAPI_API_KEY, RECAPTCHA_SECRET_KEY } from "@/lib/constants";
 
 export async function POST(request: NextRequest) {
   const data = await request.json();
-
-  const secretKey: string | undefined = RECAPTCHA_SECRET_KEY;
-
-  if (!secretKey) {
-    return NextResponse.json({
-      status: 500,
-      errorMessage: "RECAPTCHA_SECRET_KEY is not defined",
-    });
-  }
-
-  if (!STRAPI_API_KEY) {
-    return NextResponse.json({
-      status: 500,
-      errorMessage: "STRAPI_API_KEY is not defined",
-    });
-  }
-
   const { token } = data;
+  const secretKey: string | undefined = RECAPTCHA_SECRET_KEY;
 
   if (!token) {
     return NextResponse.json({
@@ -37,9 +21,9 @@ export async function POST(request: NextRequest) {
     );
 
     if (validation.data.success) {
-      const resultat = await postMail(data, STRAPI_API_KEY);
-
-      return NextResponse.json(resultat);
+      return new Response(JSON.stringify({ message: "Verified" }), {
+        status: 200,
+      });
     } else {
       return new Response(JSON.stringify({ message: "Failed to verify" }), {
         status: 405,
