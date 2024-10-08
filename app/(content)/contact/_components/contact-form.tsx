@@ -1,15 +1,48 @@
 "use client";
 
+import { useRef, useState } from "react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
+import ReCAPTCHA from "react-google-recaptcha";
 import { InputText } from "primereact/inputtext";
 import { InputTextarea } from "primereact/inputtextarea";
 import { FloatLabel } from "primereact/floatlabel";
 import { Button } from "primereact/button";
-import { postMail } from "@/lib/api/resources/contact";
 import { SendMail } from "@/lib/api/resources/contact";
+import { RECAPTCHA_SITE_KEY } from "@/lib/constants";
 
 export function ContactForm() {
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
+  const [isVerified, setIsVerified] = useState(false);
+
+  async function handleCaptchaSubmission(token: string | null) {
+    try {
+      if (token) {
+        const estValide = await fetch("/api/captcha", {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ token }),
+        });
+        if (estValide.status === 200) {
+          setIsVerified(true);
+        }
+      }
+    } catch (e) {
+      setIsVerified(false);
+    }
+  }
+
+  const handleChange = (token: string | null) => {
+    handleCaptchaSubmission(token);
+  };
+
+  function handleExpired() {
+    setIsVerified(false);
+  }
+
   const validationSchema = Yup.object().shape({
     email: Yup.string()
       .email("Veuillez renseigner une adresse email valide")
@@ -38,6 +71,11 @@ export function ContactForm() {
       });
     },
   });
+
+
+  if (!RECAPTCHA_SITE_KEY) {
+    return null;
+  }
 
   return (
     <form
@@ -92,7 +130,13 @@ export function ContactForm() {
           {formik.errors.message}
         </span>
       </FloatLabel>
-      <Button type="submit" label="Envoyer" />
+      <ReCAPTCHA
+        sitekey={RECAPTCHA_SITE_KEY}
+        ref={recaptchaRef}
+        onChange={handleChange}
+        onExpired={handleExpired}
+      />
+      <Button type="submit" label="Envoyer" disabled={!isVerified} />
     </form>
   );
 }
