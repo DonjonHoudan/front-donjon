@@ -6,7 +6,7 @@ import { LuClock2 } from "react-icons/lu";
 export function NavbarMobile() {
   return (
     <div className="relative lg:hidden">
-      <div className="fixed flex items-center justify-between bottom-0 left-0 h-[100px] px-[30px] w-full backdrop-blur-lg z-20 rounded-t-xl">
+      <div className="fixed flex items-center justify-between bottom-[10px] left-[10px] h-[80px] px-[30px] w-[calc(100vw-20px)] bg-gradient-to-b from-gray-300 to-gray-100 from z-20 rounded-full">
         <BoutonMenu
           icone={<FaDungeon className="h-full w-full" />}
           href="/le-donjon"
@@ -39,7 +39,7 @@ type BoutonProps = {
 
 function BoutonMenu({ icone, href }: BoutonProps) {
   return (
-    <Link href={href} className="h-[45px] w-[45px] bg-white rounded-full p-[8px] border-2 border-red-600">
+    <Link href={href} className="h-[45px] w-[45px] bg-white rounded-full p-[8px] drop-shadow-lg">
       {icone}
     </Link>
   );
