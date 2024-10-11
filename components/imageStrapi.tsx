@@ -35,5 +35,5 @@ export const ImageStrapi = ({
 };
 
 const getStrapiMedia = (url: string) => {
-  return `${STRAPI_IMAGE}${url}`;
+  return decodeURIComponent(`${STRAPI_IMAGE}${url}`);
 };
