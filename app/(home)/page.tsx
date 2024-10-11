@@ -20,23 +20,28 @@ export default async function Home() {
       </div>
       <div
         className={cn(
-          "absolute top-[15vh] right-[10vw] object-cover z-10",
-          "lg:top-[5vh] lg:right-[10vw]"
+          "absolute top-[15vh] w-[100vw] object-cover z-10",
+          "lg:top-[5vh] md:right-[10vw]"
         )}
       >
-        {data?.article.data.attributes.slug && (
-          <Link href={`actualites/${data.article.data.attributes.slug}`} className="relative block w-[80vw] h-[55vh] lg:w-[450px] lg:h-[636px]">
-            <ImageStrapi
-              src={data.article.data.attributes.image.data.attributes.url}
-              alt="Contenu mis en avant"
-              overrideSrc={`
+        <div className="flex justify-center md:justify-end">
+          {data?.article.data.attributes.slug && (
+            <Link
+              href={`actualites/${data.article.data.attributes.slug}`}
+              className="relative w-[350px] h-[500px] lg:w-[450px] lg:h-[636px]"
+            >
+              <ImageStrapi
+                src={data.article.data.attributes.image.data.attributes.url}
+                alt="Contenu mis en avant"
+                overrideSrc={`
                 ${data.article.data.attributes.image.data.attributes.url} 450px,
-                ${data.article.data.attributes.image.data.attributes.formats.small.url} 80vw
+                ${data.article.data.attributes.image.data.attributes.formats.small.url} 350px
               `}
-              className="rounded-xl border border-black drop-shadow-xl"
-            />
-          </Link>
-        )}
+                className="rounded-xl border border-black drop-shadow-xl"
+              />
+            </Link>
+          )}
+        </div>
       </div>
     </section>
   );
