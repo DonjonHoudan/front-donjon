@@ -7,6 +7,10 @@ import { cn } from "@/lib/utils/cn";
 export default async function Home() {
   const data = await getHomePage();
 
+  const lien = data?.article.data.attributes.programmation
+    ? `/programmation/${data?.article.data.attributes.programmation.data?.attributes.slug}`
+    : `/actualites/${data?.article.data.attributes.slug}`;
+
   return (
     <section className="relative h-[calc(100vh-75px)]">
       <div className="absolute top-0 lg:top-[-75px] left-0 h-full w-full">
@@ -27,7 +31,7 @@ export default async function Home() {
         <div className="flex justify-center md:justify-end">
           {data?.article.data.attributes.slug && (
             <Link
-              href={`actualites/${data.article.data.attributes.slug}`}
+              href={lien}
               className="relative w-[350px] h-[500px] lg:w-[450px] lg:h-[636px]"
             >
               <ImageStrapi
