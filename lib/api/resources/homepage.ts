@@ -8,7 +8,7 @@ export type PageAccueil = {
 };
 
 export async function getHomePage(): Promise<PageAccueil|null> {
-  const resultat = await GET<ReponseStrapi<PageAccueil>>("/home-page?populate[article][populate]=image");
+  const resultat = await GET<ReponseStrapi<PageAccueil>>("/home-page?populate[article][populate]=image&populate[article][populate]=programmation");
 
   if (resultat.data === undefined) {
     console.error("Erreur lors de la récupération de la page d'accueil");
