@@ -9,6 +9,7 @@ type ImageStrapiProps = {
   sizes?: string;
   overrideSrc?: string;
   className?: string;
+  blurDataUrl?: string;
 };
 
 export const ImageStrapi = ({
@@ -19,6 +20,7 @@ export const ImageStrapi = ({
   sizes,
   overrideSrc,
   className,
+  blurDataUrl
 }: ImageStrapiProps) => {
   return (
     <Image
@@ -30,6 +32,8 @@ export const ImageStrapi = ({
       sizes={sizes}
       overrideSrc={overrideSrc}
       className={className}
+      placeholder="blur"
+      blurDataURL={getStrapiMedia(blurDataUrl || "")}
     />
   );
 };

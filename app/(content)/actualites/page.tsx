@@ -60,6 +60,7 @@ export default async function Actualites() {
                 <ImageStrapi
                   src={evenement.attributes.image.data.attributes.url}
                   alt={evenement.attributes.titre}
+                  blurDataUrl={evenement.attributes.image.data.attributes.formats.thumbnail.url}
                 />
               </Link>
             )}

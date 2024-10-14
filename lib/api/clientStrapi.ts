@@ -10,6 +10,9 @@ const client: Client = async (
 ) => {
   const axiosInstance = axios.create({
     baseURL: STRAPI_URL,
+    headers: {
+      'Cache-Control': 'public, max-age=604800'
+    }
   });
 
   axiosInstance.interceptors.request.use((config) => {
