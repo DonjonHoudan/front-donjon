@@ -56,5 +56,8 @@ export type Image = {
     small: {
       url: string;
     };
+    thumbnail: {
+      url: string;
+    };
   };
 };

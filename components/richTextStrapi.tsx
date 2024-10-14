@@ -24,6 +24,7 @@ export function RichTextStrapi({ content }: RichTextStrapiProps) {
               width={350}
               height={350}
               className="rounded-lg"
+              loading="lazy"
             />
           </div>
         ),
