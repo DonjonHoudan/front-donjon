@@ -33,6 +33,7 @@ export default async function Evenement({ params }: EvenementProps) {
             src={data.image.data.attributes.url}
             alt={data.titre}
             className="rounded"
+            blurDataUrl={data.image.data.attributes.formats.thumbnail.url}
           />
         </div>
       </div>

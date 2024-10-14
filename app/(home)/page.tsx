@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils/cn";
 export default async function Home() {
   const data = await getHomePage();
 
-  const lien = data?.article.data.attributes.programmation
+  const lien = data?.article.data.attributes.programmation.data
     ? `/programmation/${data?.article.data.attributes.programmation.data?.attributes.slug}`
     : `/actualites/${data?.article.data.attributes.slug}`;
 
@@ -42,6 +42,7 @@ export default async function Home() {
                 ${data.article.data.attributes.image.data.attributes.formats.small.url} 350px
               `}
                 className="rounded-xl border border-black drop-shadow-xl"
+                blurDataUrl={data.article.data.attributes.image.data.attributes.formats.thumbnail.url}
               />
             </Link>
           )}

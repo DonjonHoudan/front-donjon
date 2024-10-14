@@ -23,6 +23,7 @@ export default async function Programmation() {
               <ImageStrapi
                 src={evenement.attributes.image.data.attributes.url}
                 alt={evenement.attributes.titre}
+                blurDataUrl={evenement.attributes.image.data.attributes.formats.thumbnail.url}
               />
             </Link>
             {evenement.attributes.lien_billeterie && (
