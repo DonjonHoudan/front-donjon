@@ -22,29 +22,10 @@ export async function POST(request: NextRequest) {
     });
   }
 
-  const { token } = data;
-
-  if (!token) {
-    return NextResponse.json({
-      status: 405,
-      errorMessage: "Token is not defined",
-    });
-  }
-
   try {
-    const validation = await axios.post(
-      `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${token}`
-    );
+    const resultat = await postMail(data, STRAPI_API_KEY);
 
-    if (validation.data.success) {
-      const resultat = await postMail(data, STRAPI_API_KEY);
-
-      return NextResponse.json(resultat);
-    } else {
-      return new Response(JSON.stringify({ message: "Failed to verify" }), {
-        status: 405,
-      });
-    }
+    return NextResponse.json(resultat);
   } catch (error) {
     return NextResponse.json({
       status: 500,
