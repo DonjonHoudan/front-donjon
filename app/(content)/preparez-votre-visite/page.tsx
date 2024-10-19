@@ -7,7 +7,7 @@ export default async function PreparezVotreVisite() {
   const data = await getPageVisite();
 
   if (!data) {
-    redirect("/404");
+    redirect("/");
   }
 
   return (

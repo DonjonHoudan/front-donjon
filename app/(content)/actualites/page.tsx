@@ -11,7 +11,7 @@ export default async function Actualites() {
   const data = await getPageActualites();
 
   if (!data) {
-    redirect("/404");
+    redirect("/");
   }
 
   return (

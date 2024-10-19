@@ -7,7 +7,7 @@ export default async function LeDonjon() {
   const data = await getPageDonjon();
 
   if (!data) {
-    redirect("/404");
+    redirect("/");
   }
 
   return (

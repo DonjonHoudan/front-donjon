@@ -16,7 +16,7 @@ export default async function Evenement({ params }: EvenementProps) {
   const data = await getProgrammation(params.slug);
 
   if (!data) {
-    redirect("/404");
+    redirect("/");
   }
 
   return (
