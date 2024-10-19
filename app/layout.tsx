@@ -4,6 +4,7 @@ import { PrimeReactProvider } from "primereact/api";
 import { Navbar } from "@/components/navbar";
 import { NavbarMobile } from "@/components/navbarMobile";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import "./globals.css";
 import "primereact/resources/primereact.min.css";
 import "primereact/resources/themes/lara-light-indigo/theme.css";
@@ -35,6 +36,7 @@ export default function ContentLayout({
         <NavbarMobile />
         <PrimeReactProvider>{children}</PrimeReactProvider>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
