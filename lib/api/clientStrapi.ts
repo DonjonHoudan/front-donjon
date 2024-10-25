@@ -11,7 +11,7 @@ const client: Client = async (
   const axiosInstance = axios.create({
     baseURL: STRAPI_URL,
     headers: {
-      "Cache-Control": "public, max-age=604800",
+      "Cache-Control": "public, max-age=86400",
       "Strapi-Response-Format": "v4"
     }
   });
