@@ -12,7 +12,7 @@
   "dependencies": {
     "@strapi/blocks-react-renderer": "^1.0.1",
     "@vercel/analytics": "^1.3.2",
-    "@vercel/speed-insights": "^1.0.14",
+    "@vercel/speed-insights": "^1.1.0",
     "axios": "^1.7.7",
     "clsx": "^2.1.1",
     "formik": "^2.4.6",
