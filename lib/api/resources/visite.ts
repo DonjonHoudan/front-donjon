@@ -1,4 +1,4 @@
-import { GET } from "../clientStrapi";
+import { GET } from "../clientStrapiFetch";
 import { ReponseStrapi } from "../types";
 import { PageDonjon } from "./donjon";
 
