@@ -1,4 +1,4 @@
-import { GET } from "../clientStrapi";
+import { GET } from "../clientStrapiFetch";
 import { Article, ReponseStrapi } from "../types";
 
 

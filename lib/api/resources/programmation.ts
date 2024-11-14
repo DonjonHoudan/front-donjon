@@ -1,4 +1,4 @@
-import { GET } from "../clientStrapi";
+import { GET } from "../clientStrapiFetch";
 import { PageProgrammation } from "./programmations";
 
 export async function getProgrammation(slug: string): Promise<PageProgrammation|null> {
