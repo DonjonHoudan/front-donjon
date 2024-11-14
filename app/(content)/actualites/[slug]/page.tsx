@@ -6,12 +6,13 @@ import { getActualite } from "@/lib/api/resources/actualite";
 import { cn } from "@/lib/utils/cn";
 
 type EvenementProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
-export default async function Evenement({ params }: EvenementProps) {
+export default async function Evenement(props: EvenementProps) {
+  const params = await props.params;
   const data = await getActualite(params.slug);
 
   if (!data) {
