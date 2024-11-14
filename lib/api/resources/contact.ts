@@ -1,4 +1,4 @@
-import { GET, POST } from "../clientStrapi";
+import { GET, POST } from "../clientStrapiFetch";
 import { ReponseStrapi } from "../types";
 import { BlocksContent } from "@strapi/blocks-react-renderer";
 

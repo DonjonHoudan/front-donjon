@@ -1,4 +1,4 @@
-import { GET } from "../clientStrapi";
+import { GET } from "../clientStrapiFetch";
 import { Programmation } from "../types";
 
 export type PageProgrammation = {
