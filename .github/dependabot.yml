@@ -10,4 +10,5 @@ updates:
     target-branch: "dev"
     open-pull-requests-limit: 10
     ignore:
-      update-types: ["version-update:semver-major"]
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
