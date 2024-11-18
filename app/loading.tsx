@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Loading() {
   return (
-    <section className="flex flex-col items-center justify-center mt-[-100px] h-[100vh] gap-y-[20px]">
+    <section className="flex flex-col items-center justify-center h-[100vh] gap-y-[20px]">
       <div>Chargement...</div>
       <Image
         src="/logo-donjon.png"
