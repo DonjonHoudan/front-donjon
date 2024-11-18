@@ -8,3 +8,6 @@ updates:
       time: "13:00"
       timezone: "Europe/Paris"
     target-branch: "dev"
+    open-pull-requests-limit: 10
+    ignore:
+      update-types: ["version-update:semver-major"]
