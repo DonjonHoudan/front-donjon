@@ -1,4 +1,4 @@
-import { redirect } from "next/navigation";
+import Loading from "@/app/loading";
 import { RichTextStrapi } from "@/components/richTextStrapi";
 import { H1 } from "@/components/titles";
 import { getPageVisite } from "@/lib/api/resources/visite";
@@ -7,7 +7,7 @@ export default async function PreparezVotreVisite() {
   const data = await getPageVisite();
 
   if (!data) {
-    redirect("/");
+    return <Loading />;
   }
 
   return (

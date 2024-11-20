@@ -1,10 +1,10 @@
-import { redirect } from "next/navigation";
 import { BoutonLien } from "@/components/boutonLien";
 import { ImageStrapi } from "@/components/imageStrapi";
 import { RichTextStrapi } from "@/components/richTextStrapi";
 import { H1 } from "@/components/titles";
 import { getProgrammation } from "@/lib/api/resources/programmation";
 import { cn } from "@/lib/utils/cn";
+import Loading from "@/app/loading";
 
 type EvenementProps = {
   params: {
@@ -16,7 +16,7 @@ export default async function Evenement({ params }: EvenementProps) {
   const data = await getProgrammation(params.slug);
 
   if (!data) {
-    redirect("/");
+    return <Loading />;
   }
 
   return (
