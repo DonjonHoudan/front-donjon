@@ -1,13 +1,13 @@
-import { redirect } from "next/navigation";
 import { RichTextStrapi } from "@/components/richTextStrapi";
 import { H1 } from "@/components/titles";
 import { getPageDonjon } from "@/lib/api/resources/donjon";
+import Loading from "@/app/loading";
 
 export default async function LeDonjon() {
   const data = await getPageDonjon();
 
   if (!data) {
-    redirect("/");
+    return <Loading />;
   }
 
   return (
