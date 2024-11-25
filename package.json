@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@strapi/blocks-react-renderer": "^1.0.1",
-    "@vercel/analytics": "^1.4.0",
+    "@vercel/analytics": "^1.4.1",
     "@vercel/speed-insights": "^1.1.0",
     "axios": "^1.7.7",
     "clsx": "^2.1.1",
