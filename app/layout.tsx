@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
+import { GA4_ID } from "@/lib/constants";
 
 const nunito = Nunito({ subsets: ["latin"] });
 
@@ -30,6 +32,7 @@ export default function RootLayout({
         {children}
         <Analytics />
         <SpeedInsights />
+        {GA4_ID && <GoogleAnalytics gaId={GA4_ID} />}
       </body>
     </html>
   );
