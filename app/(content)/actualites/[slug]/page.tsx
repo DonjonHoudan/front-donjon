@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { ImageStrapi } from "@/components/imageStrapi";
 import { RichTextStrapi } from "@/components/richTextStrapi";
 import { H1 } from "@/components/titles";
@@ -10,6 +11,17 @@ type EvenementProps = {
     slug: string;
   };
 };
+
+export async function generateMetadata(
+  { params }: EvenementProps,
+): Promise<Metadata> {
+  const data = await getActualite(params.slug);
+ 
+  return {
+    title: data?.titre,
+    description: data?.titre,
+  }
+}
 
 export default async function Evenement({ params }: EvenementProps) {
   const data = await getActualite(params.slug);
