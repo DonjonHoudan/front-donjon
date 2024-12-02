@@ -8,7 +8,7 @@ import "primereact/resources/themes/lara-light-indigo/theme.css";
 
 export const metadata: Metadata = {
   title: "Le Donjon de Houdan",
-  description: "Le Donjon de Houdan est une ancienne tour maitresse, du début du 12ème siècle bâtie par Amaury 3 de Montfort.",
+  description: "Le Donjon de Houdan est une ancienne tour maitresse, du début du 12ème siècle bâtie par Amaury III de Montfort.",
 };
 
 export default function ContentLayout({
