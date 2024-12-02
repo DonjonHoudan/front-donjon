@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Link from "next/link";
 import { BoutonLien } from "@/components/boutonLien";
 import { Card } from "@/components/card";
@@ -5,6 +6,11 @@ import { ImageStrapi } from "@/components/imageStrapi";
 import { H1, H2 } from "@/components/titles";
 import { getPageActualites } from "@/lib/api/resources/actualites";
 import { cn } from "@/lib/utils/cn";
+
+export const metadata: Metadata = {
+  title: "Actualité | Le Donjon de Houdan",
+  description: "Retrouvez toutes les actualités du Donjon de Houdan sur cette page.",
+};
 
 export default async function Actualites() {
   const data = await getPageActualites();

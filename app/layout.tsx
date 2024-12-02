@@ -3,14 +3,14 @@ import { Nunito } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import "./globals.css";
 import { GA4_ID } from "@/lib/constants";
+import "./globals.css";
 
 const nunito = Nunito({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Donjon de Houdan",
-  description: "Donjon de Houdan, Yvelines, France",
+  title: "Le Donjon de Houdan",
+  description: "Le Donjon de Houdan est une ancienne tour maitresse, du début du 12ème siècle bâtie par Amaury 3 de Montfort.",
 };
 
 export default function RootLayout({

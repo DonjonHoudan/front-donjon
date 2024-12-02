@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { BoutonLien } from "@/components/boutonLien";
 import { ImageStrapi } from "@/components/imageStrapi";
 import { RichTextStrapi } from "@/components/richTextStrapi";
@@ -11,6 +12,17 @@ type EvenementProps = {
     slug: string;
   };
 };
+
+export async function generateMetadata(
+  { params }: EvenementProps,
+): Promise<Metadata> {
+  const data = await getProgrammation(params.slug);
+ 
+  return {
+    title: data?.attributes.titre,
+    description: data?.attributes.titre,
+  }
+}
 
 export default async function Evenement({ params }: EvenementProps) {
   const data = await getProgrammation(params.slug);
