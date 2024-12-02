@@ -1,7 +1,13 @@
+import { Metadata } from "next";
 import Loading from "@/app/loading";
 import { RichTextStrapi } from "@/components/richTextStrapi";
 import { H1 } from "@/components/titles";
 import { getPageVisite } from "@/lib/api/resources/visite";
+
+export const metadata: Metadata = {
+  title: "Visite | Le Donjon de Houdan",
+  description: "Retrouvez toutes les informations du Donjon de Houdan pour préparer votre visite.",
+};
 
 export default async function PreparezVotreVisite() {
   const data = await getPageVisite();

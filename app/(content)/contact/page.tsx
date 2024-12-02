@@ -1,7 +1,13 @@
+import { Metadata } from "next";
 import { H1 } from "@/components/titles";
 import { ContactForm } from "./_components/contact-form";
 import { getPageContact } from "@/lib/api/resources/contact";
 import { RichTextStrapi } from "@/components/richTextStrapi";
+
+export const metadata: Metadata = {
+  title: "Contact | Le Donjon de Houdan",
+  description: "Contactez le Donjon de Houdan pour tout renseignement.",
+};
 
 export default async function PageContact() {
   const data = await getPageContact();

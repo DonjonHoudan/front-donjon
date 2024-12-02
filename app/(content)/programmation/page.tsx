@@ -1,10 +1,16 @@
+import { Metadata } from "next";
+import Link from "next/link";
 import { BoutonLien } from "@/components/boutonLien";
 import { Card } from "@/components/card";
 import { ImageStrapi } from "@/components/imageStrapi";
 import { H1, H2 } from "@/components/titles";
 import { getPageProgrammation } from "@/lib/api/resources/programmations";
 import { cn } from "@/lib/utils/cn";
-import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Programmation | Le Donjon de Houdan",
+  description: "Découvrez toutes la programmation proposée par le Donjon de Houdan.",
+};
 
 export default async function Programmation() {
   const data = await getPageProgrammation();
