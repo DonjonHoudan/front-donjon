@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next";
 import { getPageActualites } from "@/lib/api/resources/actualites";
+import { getPageProgrammation } from "@/lib/api/resources/programmations";
 
 type Sitemap = {
   url: string;
@@ -62,9 +63,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
 
   const sitemapProgrammation: Sitemap[] = [];
-  const programmations = await getPageActualites();
+  const programmations = await getPageProgrammation();
   if (programmations) {
-    for (const programmation of programmations.articles.data) {
+    for (const programmation of programmations) {
       sitemapProgrammation.push({
         url: `https://www.ledonjondehoudan.fr/programmation/${programmation.attributes.slug}`,
         lastModified: new Date(),
