@@ -28,10 +28,6 @@ export default function RootLayout({
           sizes="16x16"
           href="/logo-donjon.png"
         />
-        <Script
-          src="https://cmp.osano.com/AzqUQbUVpjrf26nAD/10caff8a-3fae-47be-9b65-bdb3a500e208/osano.js"
-          strategy="afterInteractive"
-        />
       </head>
       <body className={nunito.className}>
         {children}
