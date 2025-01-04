@@ -6,10 +6,11 @@ const client: Client = async (
   url = "",
   data = undefined,
   token = undefined,
-  revalidate = 86400,
+  maxAge = 60,
+  revalidate = 3600,
 ) => {
   const headers: HeadersInit = {
-    "Cache-Control": `public, max-age=${revalidate}, stale-while-revalidate=${revalidate}`,
+    "Cache-Control": `public, max-age=${maxAge}, stale-while-revalidate=${revalidate}`,
     "Strapi-Response-Format": "v4",
   };
 
@@ -19,6 +20,9 @@ const client: Client = async (
 
   try {
     const response = await fetch(`${STRAPI_URL}${url}`, {
+      next: {
+        revalidate: 3600,
+      },
       method,
       headers,
       body: data ? JSON.stringify(data) : undefined,
