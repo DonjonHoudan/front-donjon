@@ -7,10 +7,11 @@ const client: Client = async (
   data = undefined,
   token = undefined,
   maxAge = 60,
-  revalidate = 3600,
+  revalidate = 3600
 ) => {
   const headers: HeadersInit = {
     "Cache-Control": `public, max-age=${maxAge}, stale-while-revalidate=${revalidate}`,
+    "Content-Type": "application/json",
     "Strapi-Response-Format": "v4",
   };
 
@@ -19,14 +20,22 @@ const client: Client = async (
   }
 
   try {
-    const response = await fetch(`${STRAPI_URL}${url}`, {
+    let params: RequestInit = {
       next: {
         revalidate: 3600,
       },
       method,
       headers,
-      body: data ? JSON.stringify(data) : undefined,
-    });
+    };
+
+    if (method === AxiosRequestType.POST) {
+      params = {
+        ...params,
+        body: JSON.stringify(data),
+      };
+    }
+
+    const response = await fetch(`${STRAPI_URL}${url}`, params);
 
     if (!response.ok) {
       const errorData = await response.json();
@@ -49,6 +58,10 @@ export function GET<TBodyResponse>(url: string) {
   return client<TBodyResponse>(AxiosRequestType.GET, url);
 }
 
-export function POST<TBodyResponse, TPayload>(url: string, data: TPayload, apiKey: string) {
+export function POST<TBodyResponse, TPayload>(
+  url: string,
+  data: TPayload,
+  apiKey: string
+) {
   return client<TBodyResponse>(AxiosRequestType.POST, url, data, apiKey);
 }
