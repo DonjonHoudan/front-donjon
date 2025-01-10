@@ -5,7 +5,7 @@ export async function getProgrammation(slug: string): Promise<PageProgrammation|
   const resultat = await GET<PageProgrammation[]>(`/programmations?filters[slug][$eq]=${slug}&populate[image][populate]=image`);
 
   if (resultat.data === undefined) {
-    console.error("Erreur lors de la récupération de l'évènement");
+    console.error("Erreur lors de la récupération de l'évènement", resultat);
     return null;
   }
 
