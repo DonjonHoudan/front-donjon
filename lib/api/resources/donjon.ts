@@ -11,7 +11,7 @@ export async function getPageDonjon(): Promise<PageDonjon|null> {
   const resultat = await GET<ReponseStrapi<PageDonjon>>("/page-donjon");
 
   if (resultat.data === undefined) {
-    console.error("Erreur lors de la récupération de la page du Donjon");
+    console.error("Erreur lors de la récupération de la page du Donjon", resultat);
     return null;
   }
 
