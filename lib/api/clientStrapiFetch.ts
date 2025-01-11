@@ -6,14 +6,16 @@ const client: Client = async (
   url = "",
   data = undefined,
   token = undefined,
-  maxAge = 60,
-  revalidate = 3600
+  strapiVersion = "v4",
 ) => {
   const headers: HeadersInit = {
-    "Cache-Control": `public, max-age=${maxAge}, stale-while-revalidate=${revalidate}`,
+    "Cache-Control": "public, max-age=60, stale-while-revalidate=3600",
     "Content-Type": "application/json",
-    "Strapi-Response-Format": "v4",
   };
+
+  if (strapiVersion === "v4") {
+    headers["Strapi-Response-Format"] = "v4";
+  }
 
   if (token) {
     headers.Authorization = `Bearer ${token}`;
@@ -54,14 +56,15 @@ const client: Client = async (
   }
 };
 
-export function GET<TBodyResponse>(url: string) {
-  return client<TBodyResponse>(AxiosRequestType.GET, url);
+export function GET<TBodyResponse>(url: string, strapiVersion?: string) {
+  return client<TBodyResponse>(AxiosRequestType.GET, url, undefined, undefined, strapiVersion);
 }
 
 export function POST<TBodyResponse, TPayload>(
   url: string,
   data: TPayload,
-  apiKey: string
+  apiKey: string,
+  strapiVersion?: string
 ) {
-  return client<TBodyResponse>(AxiosRequestType.POST, url, data, apiKey);
+  return client<TBodyResponse>(AxiosRequestType.POST, url, data, apiKey, strapiVersion);
 }
