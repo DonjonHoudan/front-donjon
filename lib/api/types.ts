@@ -17,13 +17,18 @@ export type Client = <TBodyResponse, TData = any>(
   method: AxiosRequestType,
   url: string,
   data?: TData,
-  apiKey?: string
+  apiKey?: string,
+  strapiVersion?: string
 ) => Promise<ClientResponse<TBodyResponse>>;
 
 export type ReponseStrapi<T> = {
   id: number;
   attributes: T;
 };
+
+export type ReponseStrapiV5<T> = {
+  data: T;
+}
 
 export type Article = {
   titre: string;
@@ -32,6 +37,16 @@ export type Article = {
   image: {
     data: ReponseStrapi<Image>;
   };
+  programmation: {
+    data?: ReponseStrapi<Programmation>;
+  };
+};
+
+export type ArticleV5 = {
+  titre: string;
+  contenu: BlocksContent;
+  slug: string;
+  image: Image;
   programmation: {
     data?: ReponseStrapi<Programmation>;
   };
@@ -54,6 +69,9 @@ export type Image = {
   url: string;
   formats: {
     small: {
+      url: string;
+    };
+    medium: {
       url: string;
     };
     thumbnail: {

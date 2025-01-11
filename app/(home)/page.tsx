@@ -7,10 +7,6 @@ import { cn } from "@/lib/utils/cn";
 export default async function Home() {
   const data = await getHomePage();
 
-  const lien = data?.article.data.attributes.programmation.data
-    ? `/programmation/${data?.article.data.attributes.programmation.data?.attributes.slug}`
-    : `/actualites/${data?.article.data.attributes.slug}`;
-
   return (
     <section className="relative h-[calc(100vh-75px)]">
       <div className="absolute top-0 lg:top-[-75px] left-0 h-full w-full">
@@ -29,20 +25,20 @@ export default async function Home() {
         )}
       >
         <div className="flex justify-center md:justify-end">
-          {data?.article.data.attributes.slug && (
+          {data?.article.slug && (
             <Link
-              href={lien}
+              href={`actualites/${data.article.slug}`}
               className="relative w-[350px] h-[500px] lg:w-[450px] lg:h-[636px]"
             >
               <ImageStrapi
-                src={data.article.data.attributes.image.data.attributes.url}
+                src={data.article.image.url}
                 alt="Contenu mis en avant"
                 overrideSrc={`
-                ${data.article.data.attributes.image.data.attributes.url} 450px,
-                ${data.article.data.attributes.image.data.attributes.formats.small.url} 350px
+                ${data.article.image.formats.medium.url} 450px,
+                ${data.article.image.formats.small.url} 350px
               `}
                 className="rounded-xl border border-black drop-shadow-xl"
-                blurDataUrl={data.article.data.attributes.image.data.attributes.formats.thumbnail.url}
+                blurDataUrl={data.article.image.formats.thumbnail.url}
               />
             </Link>
           )}
