@@ -66,6 +66,7 @@ export type Programmation = {
 };
 
 export type ProgrammationV5 = {
+  id: number;
   titre: string;
   slug: string;
   lien_billeterie: string;

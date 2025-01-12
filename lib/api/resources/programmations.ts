@@ -1,14 +1,15 @@
 import { GET } from "../clientStrapiFetch";
-import { Programmation } from "../types";
+import { Programmation, ProgrammationV5 } from "../types";
 
 export type PageProgrammation = {
   id: number;
   attributes: Programmation;
 };
 
-export async function getPageProgrammation(): Promise<PageProgrammation[]> {
-  const resultat = await GET<PageProgrammation[]>(
-    "/programmations?populate=*"
+export async function getPageProgrammation(): Promise<ProgrammationV5[]> {
+  const resultat = await GET<ProgrammationV5[]>(
+    "/programmations?populate=*",
+    "v5"
   );
 
   if (resultat.data === undefined) {

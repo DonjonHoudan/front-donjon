@@ -19,8 +19,8 @@ export async function generateMetadata(
   const data = await getProgrammation(params.slug);
  
   return {
-    title: data?.attributes.titre,
-    description: data?.attributes.titre,
+    title: data?.titre,
+    description: data?.titre,
   }
 }
 
@@ -33,25 +33,25 @@ export default async function Evenement({ params }: EvenementProps) {
 
   return (
     <section>
-      <H1 className="my-[50px] text-center">{data.attributes.titre}</H1>
+      <H1 className="my-[50px] text-center">{data.titre}</H1>
       <div
         className={cn(
           "flex flex-col items-center px-[10px] gap-[30px] mb-[130px]",
           "lg:px-[20vh] lg:mb-[50px]"
         )}
       >
-        <RichTextStrapi content={data.attributes.descriptif} />
-        {data.attributes.lien_billeterie && (
-          <BoutonLien href={data.attributes.lien_billeterie}>
+        <RichTextStrapi content={data.descriptif} />
+        {data.lien_billeterie && (
+          <BoutonLien href={data.lien_billeterie}>
             Réserver
           </BoutonLien>
         )}
         <div className="relative block w-[350px] h-[494px] lg:w-[600px] lg:h-[848px]">
           <ImageStrapi
-            src={data.attributes.image.data.attributes.url}
-            alt={data.attributes.titre}
+            src={data.image.url}
+            alt={data.titre}
             className="rounded"
-            blurDataUrl={data.attributes.image.data.attributes.formats.thumbnail.url}
+            blurDataUrl={data.image.formats.thumbnail.url}
           />
         </div>
       </div>
