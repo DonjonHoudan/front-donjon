@@ -1,5 +1,4 @@
 import { GET } from "../clientStrapiFetch";
-import { ReponseStrapi } from "../types";
 import { PageDonjon } from "./donjon";
 
 export async function getPageVisite(): Promise<PageDonjon|null> {
