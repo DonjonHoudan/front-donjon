@@ -48,6 +48,7 @@ export type Article = {
 };
 
 export type ArticleV5 = {
+  id: number;
   titre: string;
   contenu: BlocksContent;
   slug: string;
