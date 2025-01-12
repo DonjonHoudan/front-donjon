@@ -6,6 +6,7 @@ import { H1 } from "@/components/titles";
 import { getProgrammation } from "@/lib/api/resources/programmation";
 import { cn } from "@/lib/utils/cn";
 import Loading from "@/app/loading";
+import { IframeYoutube } from "./_components/iframe";
 
 type EvenementProps = {
   params: {
@@ -54,6 +55,7 @@ export default async function Evenement({ params }: EvenementProps) {
             blurDataUrl={data.image.formats.thumbnail.url}
           />
         </div>
+        <IframeYoutube iframe={data.lien_youtube} />
       </div>
     </section>
   );
