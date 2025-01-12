@@ -52,9 +52,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const sitemapActualites: Sitemap[] = [];
   const actualites = await getPageActualites();
   if (actualites) {
-    for (const actualite of actualites.articles.data) {
+    for (const actualite of actualites) {
       sitemapActualites.push({
-        url: `https://www.ledonjondehoudan.fr/actualites/${actualite.attributes.slug}`,
+        url: `https://www.ledonjondehoudan.fr/actualites/${actualite.slug}`,
         lastModified: new Date(),
         changeFrequency: "weekly",
         priority: 0.9,
@@ -67,7 +67,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   if (programmations) {
     for (const programmation of programmations) {
       sitemapProgrammation.push({
-        url: `https://www.ledonjondehoudan.fr/programmation/${programmation.attributes.slug}`,
+        url: `https://www.ledonjondehoudan.fr/programmation/${programmation.slug}`,
         lastModified: new Date(),
         changeFrequency: "weekly",
         priority: 0.9,
