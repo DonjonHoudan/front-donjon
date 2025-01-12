@@ -1,8 +1,8 @@
-import { Client, AxiosRequestType } from "@/lib/api/types";
+import { Client, RequestType } from "@/lib/api/types";
 import { STRAPI_URL } from "@/lib/constants";
 
 const client: Client = async (
-  method = AxiosRequestType.GET,
+  method = RequestType.GET,
   url = "",
   data = undefined,
   token = undefined,
@@ -30,7 +30,7 @@ const client: Client = async (
       headers,
     };
 
-    if (method === AxiosRequestType.POST) {
+    if (method === RequestType.POST) {
       params = {
         ...params,
         body: JSON.stringify(data),
@@ -40,10 +40,9 @@ const client: Client = async (
     const response = await fetch(`${STRAPI_URL}${url}`, params);
 
     if (!response.ok) {
-      const errorData = await response.json();
       return {
         status: response.status,
-        errorMessage: errorData.errorMessage,
+        errorMessage: response.statusText,
       };
     }
 
@@ -57,7 +56,7 @@ const client: Client = async (
 };
 
 export function GET<TBodyResponse>(url: string, strapiVersion?: string) {
-  return client<TBodyResponse>(AxiosRequestType.GET, url, undefined, undefined, strapiVersion);
+  return client<TBodyResponse>(RequestType.GET, url, undefined, undefined, strapiVersion);
 }
 
 export function POST<TBodyResponse, TPayload>(
@@ -66,5 +65,5 @@ export function POST<TBodyResponse, TPayload>(
   apiKey: string,
   strapiVersion?: string
 ) {
-  return client<TBodyResponse>(AxiosRequestType.POST, url, data, apiKey, strapiVersion);
+  return client<TBodyResponse>(RequestType.POST, url, data, apiKey, strapiVersion);
 }
