@@ -1,18 +1,14 @@
-import { GET } from "../clientStrapiFetch";
+import { GET } from "../clientStrapi";
 import { Programmation } from "../types";
 
-export type PageProgrammation = {
-  id: number;
-  attributes: Programmation;
-};
-
-export async function getPageProgrammation(): Promise<PageProgrammation[]> {
-  const resultat = await GET<PageProgrammation[]>(
-    "/programmations?populate=*"
-  );
+export async function getPageProgrammation(): Promise<Programmation[]> {
+  const resultat = await GET<Programmation[]>("/programmations?populate=*");
 
   if (resultat.data === undefined) {
-    console.error("Erreur lors de la récupération de la page programmation", resultat);
+    console.error(
+      "Erreur lors de la récupération de la page programmation",
+      resultat
+    );
     return [];
   }
 

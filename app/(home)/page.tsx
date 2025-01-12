@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getHomePage } from "@/lib/api/resources/homepage";
 import { ImageStrapi } from "@/components/imageStrapi";
 import { cn } from "@/lib/utils/cn";
+import { Image as ImageType, PageAccueil } from "@/lib/api/types";
 
 export default async function Home() {
   const data = await getHomePage();
@@ -25,25 +26,60 @@ export default async function Home() {
         )}
       >
         <div className="flex justify-center md:justify-end">
-          {data?.article.slug && (
-            <Link
-              href={`actualites/${data.article.slug}`}
-              className="relative w-[350px] h-[500px] lg:w-[450px] lg:h-[636px]"
-            >
-              <ImageStrapi
-                src={data.article.image.url}
-                alt="Contenu mis en avant"
-                overrideSrc={`
-                ${data.article.image.formats.medium.url} 450px,
-                ${data.article.image.formats.small.url} 350px
-              `}
-                className="rounded-xl border border-black drop-shadow-xl"
-                blurDataUrl={data.article.image.formats.thumbnail.url}
-              />
-            </Link>
-          )}
+        <AffichageEvenement evenement={data} />
         </div>
       </div>
     </section>
+  );
+}
+
+type Evenement = {
+  evenement: PageAccueil|null;
+}
+
+type EvenementAffiche = {
+  slug: string;
+  image: ImageType;
+}
+
+function AffichageEvenement({ evenement }: Evenement) {
+  if (!evenement) {
+    return null;
+  }
+
+  let data: EvenementAffiche | null = null;
+
+  if (evenement.article) {
+    data = {
+      slug: evenement.article.slug,
+      image: evenement.article.image,
+    };
+  } else if (evenement.programmation) {
+    data = {
+      slug: evenement.programmation.slug,
+      image: evenement.programmation.image,
+    };
+  }
+
+  if (!data) {
+    return null;
+  }
+
+  return (
+    <Link
+      href={`${evenement.article ? `actualites` : `programmation`}/${data.slug}`}
+      className="relative w-[350px] h-[500px] lg:w-[450px] lg:h-[636px]"
+    >
+      <ImageStrapi
+        src={data.image.url}
+        alt="Contenu mis en avant"
+        overrideSrc={`
+        ${data.image.formats.medium.url} 450px,
+        ${data.image.formats.small.url} 350px
+      `}
+        className="rounded-xl border border-black drop-shadow-xl"
+        blurDataUrl={data.image.formats.thumbnail.url}
+      />
+    </Link>
   );
 }
