@@ -42,10 +42,10 @@ export default async function Evenement({ params }: EvenementProps) {
         <RichTextStrapi content={data.contenu} />
         <div className="relative block w-[350px] h-[494px] lg:w-[600px] lg:h-[848px]">
           <ImageStrapi
-            src={data.image.data.attributes.url}
+            src={data.image.url}
             alt={data.titre}
             className="rounded"
-            blurDataUrl={data.image.data.attributes.formats.thumbnail.url}
+            blurDataUrl={data.image.formats.thumbnail.url}
           />
         </div>
       </div>

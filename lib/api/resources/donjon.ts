@@ -1,5 +1,4 @@
-import { GET } from "../clientStrapiFetch";
-import { ReponseStrapi } from "../types";
+import { GET } from "../clientStrapi";
 import { BlocksContent } from "@strapi/blocks-react-renderer";
 
 export type PageDonjon = {
@@ -7,13 +6,16 @@ export type PageDonjon = {
   contenu: BlocksContent;
 };
 
-export async function getPageDonjon(): Promise<PageDonjon|null> {
-  const resultat = await GET<ReponseStrapi<PageDonjon>>("/page-donjon");
+export async function getPageDonjon(): Promise<PageDonjon | null> {
+  const resultat = await GET<PageDonjon>("/page-donjon");
 
   if (resultat.data === undefined) {
-    console.error("Erreur lors de la récupération de la page du Donjon", resultat);
+    console.error(
+      "Erreur lors de la récupération de la page du Donjon",
+      resultat
+    );
     return null;
   }
 
-  return resultat.data.attributes;
+  return resultat.data;
 }

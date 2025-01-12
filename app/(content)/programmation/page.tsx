@@ -24,16 +24,16 @@ export default async function Programmation() {
             key={evenement.id}
             className="flex flex-col items-center gap-y-[20px] w-[90vw] lg:w-[400px]"
           >
-            <H2 className="text-center">{evenement.attributes.titre}</H2>
-            <Link href={`programmation/${evenement.attributes.slug}`} className="relative block w-[300px] h-[424px]">
+            <H2 className="text-center">{evenement.titre}</H2>
+            <Link href={`programmation/${evenement.slug}`} className="relative block w-[300px] h-[424px]">
               <ImageStrapi
-                src={evenement.attributes.image.data.attributes.url}
-                alt={evenement.attributes.titre}
-                blurDataUrl={evenement.attributes.image.data.attributes.formats.thumbnail.url}
+                src={evenement.image.url}
+                alt={evenement.titre}
+                blurDataUrl={evenement.image.formats.thumbnail.url}
               />
             </Link>
-            {evenement.attributes.lien_billeterie && (
-              <BoutonLien href={evenement.attributes.lien_billeterie}>
+            {evenement.lien_billeterie && (
+              <BoutonLien href={evenement.lien_billeterie}>
                 Réserver
               </BoutonLien>
             )}

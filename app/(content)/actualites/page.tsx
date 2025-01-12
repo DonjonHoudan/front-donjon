@@ -24,47 +24,23 @@ export default async function Actualites() {
           "lg:px-[20vh] lg:mb-[50px]"
         )}
       >
-        {data?.articles.data.map((evenement) => (
+        {data.map((evenement) => (
           <Card
             key={evenement.id}
             className="flex flex-col items-center gap-y-[20px] w-[400px]"
           >
-            <H2 className="text-center">{evenement.attributes.titre}</H2>
-            {evenement.attributes.programmation.data ? (
-              <>
-                <Link
-                  href={`programmation/${evenement.attributes.slug}`}
-                  className="relative block w-[300px] h-[424px]"
-                >
-                  <ImageStrapi
-                    src={evenement.attributes.image.data.attributes.url}
-                    alt={evenement.attributes.titre}
-                  />
-                </Link>
-                {evenement.attributes.programmation.data.attributes
-                  .lien_billeterie && (
-                  <BoutonLien
-                    href={
-                      evenement.attributes.programmation.data.attributes
-                        .lien_billeterie
-                    }
-                  >
-                    Réserver
-                  </BoutonLien>
-                )}
-              </>
-            ) : (
+            <H2 className="text-center">{evenement.titre}</H2>
+            
               <Link
-                href={`actualites/${evenement.attributes.slug}`}
+                href={`actualites/${evenement.slug}`}
                 className="relative block w-[300px] h-[424px]"
               >
                 <ImageStrapi
-                  src={evenement.attributes.image.data.attributes.url}
-                  alt={evenement.attributes.titre}
-                  blurDataUrl={evenement.attributes.image.data.attributes.formats.thumbnail.url}
+                  src={evenement.image.url}
+                  alt={evenement.titre}
+                  blurDataUrl={evenement.image.formats.thumbnail.url}
                 />
               </Link>
-            )}
           </Card>
         ))}
       </div>

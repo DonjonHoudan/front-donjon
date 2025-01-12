@@ -1,19 +1,16 @@
-import { GET } from "../clientStrapiFetch";
-import { Article, ReponseStrapi } from "../types";
+import { GET } from "../clientStrapi";
+import { Article } from "../types";
 
-export type PageActualites = {
-  articles: {
-    data: ReponseStrapi<Article>[];
-  };
-};
-
-export async function getPageActualites(): Promise<PageActualites|null> {
-  const resultat = await GET<ReponseStrapi<PageActualites>>("/page-actualite?populate[articles][populate]=image&populate[articles][populate]=programmation");
+export async function getPageActualites(): Promise<Article[]> {
+  const resultat = await GET<Article[]>("/articles?populate=*");
 
   if (resultat.data === undefined) {
-    console.error("Erreur lors de la récupération de la page actualités", resultat);
-    return null;
+    console.error(
+      "Erreur lors de la récupération de la page actualités",
+      resultat
+    );
+    return [];
   }
 
-  return resultat.data.attributes;
+  return resultat.data;
 }

@@ -1,5 +1,4 @@
-import { GET, POST } from "../clientStrapiFetch";
-import { ReponseStrapi } from "../types";
+import { GET, POST } from "../clientStrapi";
 import { BlocksContent } from "@strapi/blocks-react-renderer";
 
 export type PageContact = {
@@ -7,14 +6,14 @@ export type PageContact = {
 };
 
 export async function getPageContact(): Promise<PageContact|null> {
-  const resultat = await GET<ReponseStrapi<PageContact>>(`/page-contact`);
+  const resultat = await GET<PageContact>("/page-contact");
 
   if (resultat.data === undefined) {
-    console.error("Erreur lors de la récupération de la page contact");
+    console.error("Erreur lors de la récupération de la page contact", resultat);
     return null;
   }
 
-  return resultat.data.attributes;
+  return resultat.data;
 }
 
 export type SendMail = {
