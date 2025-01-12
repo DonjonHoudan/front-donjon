@@ -1,8 +1,8 @@
 import { GET } from "../clientStrapi";
-import { ArticleV5 } from "../types";
+import { Article } from "../types";
 
-export async function getActualite(slug: string): Promise<ArticleV5 | null> {
-  const resultat = await GET<ArticleV5[]>(
+export async function getActualite(slug: string): Promise<Article | null> {
+  const resultat = await GET<Article[]>(
     `/articles?filters[slug][$eq]=${slug}&populate=image`
   );
 

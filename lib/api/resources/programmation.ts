@@ -1,10 +1,10 @@
 import { GET } from "../clientStrapi";
-import { ProgrammationV5 } from "../types";
+import { Programmation } from "../types";
 
 export async function getProgrammation(
   slug: string
-): Promise<ProgrammationV5 | null> {
-  const resultat = await GET<ProgrammationV5[]>(
+): Promise<Programmation | null> {
+  const resultat = await GET<Programmation[]>(
     `/programmations?filters[slug][$eq]=${slug}&populate=*`
   );
 

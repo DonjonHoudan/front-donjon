@@ -1,8 +1,8 @@
 import { GET } from "../clientStrapi";
-import { ProgrammationV5 } from "../types";
+import { Programmation } from "../types";
 
-export async function getPageProgrammation(): Promise<ProgrammationV5[]> {
-  const resultat = await GET<ProgrammationV5[]>("/programmations?populate=*");
+export async function getPageProgrammation(): Promise<Programmation[]> {
+  const resultat = await GET<Programmation[]>("/programmations?populate=*");
 
   if (resultat.data === undefined) {
     console.error(
