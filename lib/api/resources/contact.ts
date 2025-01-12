@@ -34,7 +34,7 @@ export async function postMail(data: SendMail, token: string): Promise<ReponseMa
     throw new Error("Clé API STRAPI manquante");
   }
   
-  const resultat = await POST("/contacts", data, token);
+  const resultat = await POST("/contacts", data, token, "v5");
 
   return {
     status: resultat.status,

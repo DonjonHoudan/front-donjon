@@ -1,4 +1,3 @@
-import axios from "axios";
 import { NextRequest, NextResponse } from "next/server";
 import { postMail } from "@/lib/api/resources/contact";
 import { STRAPI_API_KEY, RECAPTCHA_SECRET_KEY } from "@/lib/constants";
