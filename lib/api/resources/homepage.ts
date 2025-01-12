@@ -1,11 +1,16 @@
-import { GET } from "../clientStrapiFetch";
-import { ArticleV5, PageAccueil } from "../types";
+import { GET } from "../clientStrapi";
+import { PageAccueil } from "../types";
 
-export async function getHomePage(): Promise<PageAccueil|null> {
-  const resultat = await GET<PageAccueil>("/home-page?populate[article][populate]=image&populate[programmation][populate]=image", "v5");
+export async function getHomePage(): Promise<PageAccueil | null> {
+  const resultat = await GET<PageAccueil>(
+    "/home-page?populate[article][populate]=image&populate[programmation][populate]=image"
+  );
 
   if (resultat.data === undefined) {
-    console.error("Erreur lors de la récupération de la page d'accueil", resultat); 
+    console.error(
+      "Erreur lors de la récupération de la page d'accueil",
+      resultat
+    );
     return null;
   }
 

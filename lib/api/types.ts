@@ -23,7 +23,6 @@ export type Client = <TBodyResponse, TData = any>(
   url: string,
   data?: TData,
   apiKey?: string,
-  strapiVersion?: string
 ) => Promise<ClientResponse<TBodyResponse>>;
 
 export type ReponseStrapi<T> = {

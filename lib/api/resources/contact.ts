@@ -1,4 +1,4 @@
-import { GET, POST } from "../clientStrapiFetch";
+import { GET, POST } from "../clientStrapi";
 import { BlocksContent } from "@strapi/blocks-react-renderer";
 
 export type PageContact = {
@@ -6,7 +6,7 @@ export type PageContact = {
 };
 
 export async function getPageContact(): Promise<PageContact|null> {
-  const resultat = await GET<PageContact>("/page-contact", "v5");
+  const resultat = await GET<PageContact>("/page-contact");
 
   if (resultat.data === undefined) {
     console.error("Erreur lors de la récupération de la page contact", resultat);
@@ -34,7 +34,7 @@ export async function postMail(data: SendMail, token: string): Promise<ReponseMa
     throw new Error("Clé API STRAPI manquante");
   }
   
-  const resultat = await POST("/contacts", data, token, "v5");
+  const resultat = await POST("/contacts", data, token);
 
   return {
     status: resultat.status,
