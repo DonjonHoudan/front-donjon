@@ -8,7 +8,6 @@ const client: Client = async (
   token = undefined,
 ) => {
   const headers: HeadersInit = {
-    "Cache-Control": "public, max-age=60, stale-while-revalidate=3600",
     "Content-Type": "application/json",
   };
 
@@ -19,8 +18,9 @@ const client: Client = async (
   try {
     let params: RequestInit = {
       next: {
-        revalidate: 3600,
+        revalidate: 86400,
       },
+      cache: "no-store",
       method,
       headers,
     };
