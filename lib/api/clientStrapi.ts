@@ -20,7 +20,6 @@ const client: Client = async (
       next: {
         revalidate: 86400,
       },
-      cache: "no-store",
       method,
       headers,
     };
