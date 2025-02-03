@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@next/third-parties": "^15.1.6",
-    "@strapi/blocks-react-renderer": "^1.0.1",
+    "@strapi/blocks-react-renderer": "^1.0.2",
     "@vercel/analytics": "^1.4.1",
     "@vercel/speed-insights": "^1.1.0",
     "axios": "^1.7.9",
