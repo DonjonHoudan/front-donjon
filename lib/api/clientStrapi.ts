@@ -5,7 +5,7 @@ const client: Client = async (
   method = RequestType.GET,
   url = "",
   data = undefined,
-  token = undefined,
+  token = undefined
 ) => {
   const headers: HeadersInit = {
     "Content-Type": "application/json",
@@ -17,9 +17,6 @@ const client: Client = async (
 
   try {
     let params: RequestInit = {
-      next: {
-        revalidate: 86400,
-      },
       method,
       headers,
     };
@@ -31,7 +28,12 @@ const client: Client = async (
       };
     }
 
-    const response = await fetch(`${STRAPI_URL}${url}`, params);
+    const response = await fetch(`${STRAPI_URL}${url}`, {
+      ...params,
+      next: {
+        revalidate: 3600,
+      },
+    });
 
     if (!response.ok) {
       return {
@@ -56,7 +58,7 @@ export function GET<TBodyResponse>(url: string) {
 export function POST<TBodyResponse, TPayload>(
   url: string,
   data: TPayload,
-  apiKey: string,
+  apiKey: string
 ) {
   return client<TBodyResponse>(RequestType.POST, url, data, apiKey);
 }
