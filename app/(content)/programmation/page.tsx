@@ -7,6 +7,8 @@ import { H1, H2 } from "@/components/titles";
 import { getPageProgrammation } from "@/lib/api/resources/programmations";
 import { cn } from "@/lib/utils/cn";
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: "Programmation | Le Donjon de Houdan",
   description: "Découvrez toutes la programmation proposée par le Donjon de Houdan.",

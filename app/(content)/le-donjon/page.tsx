@@ -4,6 +4,8 @@ import { H1 } from "@/components/titles";
 import { getPageDonjon } from "@/lib/api/resources/donjon";
 import Loading from "@/app/loading";
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: "Histoire | Le Donjon de Houdan",
   description: "Découvrez l'histoire du Donjon de Houdan du 12ème siècle à nos jours.",
