@@ -19,6 +19,9 @@ const client: Client = async (
     let params: RequestInit = {
       method,
       headers,
+      next: {
+        revalidate: 1,
+      },
     };
 
     if (method === RequestType.POST) {
@@ -28,12 +31,7 @@ const client: Client = async (
       };
     }
 
-    const response = await fetch(`${STRAPI_URL}${url}`, {
-      ...params,
-      next: {
-        revalidate: 3600,
-      },
-    });
+    const response = await fetch(`${STRAPI_URL}${url}`, params);
 
     if (!response.ok) {
       return {

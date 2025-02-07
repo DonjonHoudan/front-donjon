@@ -4,6 +4,8 @@ import { RichTextStrapi } from "@/components/richTextStrapi";
 import { H1 } from "@/components/titles";
 import { getPageVisite } from "@/lib/api/resources/visite";
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: "Visite | Le Donjon de Houdan",
   description: "Retrouvez toutes les informations du Donjon de Houdan pour préparer votre visite.",

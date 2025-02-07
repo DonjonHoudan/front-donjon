@@ -7,6 +7,8 @@ import { H1, H2 } from "@/components/titles";
 import { getPageActualites } from "@/lib/api/resources/actualites";
 import { cn } from "@/lib/utils/cn";
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: "Actualité | Le Donjon de Houdan",
   description: "Retrouvez toutes les actualités du Donjon de Houdan sur cette page.",

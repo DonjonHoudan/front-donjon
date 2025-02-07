@@ -4,6 +4,8 @@ import { ContactForm } from "./_components/contact-form";
 import { getPageContact } from "@/lib/api/resources/contact";
 import { RichTextStrapi } from "@/components/richTextStrapi";
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: "Contact | Le Donjon de Houdan",
   description: "Contactez le Donjon de Houdan pour tout renseignement.",

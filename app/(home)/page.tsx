@@ -5,6 +5,8 @@ import { ImageStrapi } from "@/components/imageStrapi";
 import { cn } from "@/lib/utils/cn";
 import { Image as ImageType, PageAccueil } from "@/lib/api/types";
 
+export const revalidate = 3600;
+
 export default async function Home() {
   const data = await getHomePage();
 
