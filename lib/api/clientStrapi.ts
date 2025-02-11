@@ -1,20 +1,16 @@
 import { Client, RequestType } from "@/lib/api/types";
 import { STRAPI_URL } from "@/lib/constants";
 
+const headersInit: HeadersInit = {
+  "Content-Type": "application/json",
+};
+
 const client: Client = async (
   method = RequestType.GET,
   url = "",
   data = undefined,
-  token = undefined
+  headers = headersInit,
 ) => {
-  const headers: HeadersInit = {
-    "Content-Type": "application/json",
-  };
-
-  if (token) {
-    headers.Authorization = `Bearer ${token}`;
-  }
-
   try {
     let params: RequestInit = {
       method,
@@ -58,5 +54,11 @@ export function POST<TBodyResponse, TPayload>(
   data: TPayload,
   apiKey: string
 ) {
-  return client<TBodyResponse>(RequestType.POST, url, data, apiKey);
+
+  const headers: HeadersInit = {
+    ...headersInit,
+    "Authorization": `Bearer ${apiKey}`,
+  };
+
+  return client<TBodyResponse>(RequestType.POST, url, data, headers);
 }
