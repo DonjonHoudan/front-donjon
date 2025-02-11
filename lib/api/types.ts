@@ -22,7 +22,7 @@ export type Client = <TBodyResponse, TData = any>(
   method: RequestType,
   url: string,
   data?: TData,
-  apiKey?: string,
+  headers?: HeadersInit,
 ) => Promise<ClientResponse<TBodyResponse>>;
 
 export type ReponseStrapi<T> = {
