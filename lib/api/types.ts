@@ -16,6 +16,7 @@ export type ClientResponse<T> = {
   data?: T;
   status: number;
   errorMessage?: string;
+  headers?: Headers;
 };
 
 export type Client = <TBodyResponse, TData = any>(
