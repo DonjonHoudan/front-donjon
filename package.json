@@ -10,7 +10,7 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@next/third-parties": "^15.1.6",
+    "@next/third-parties": "^15.1.7",
     "@strapi/blocks-react-renderer": "^1.0.2",
     "@vercel/analytics": "^1.4.1",
     "@vercel/speed-insights": "^1.2.0",
