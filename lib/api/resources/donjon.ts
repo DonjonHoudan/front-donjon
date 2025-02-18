@@ -1,3 +1,4 @@
+import { PUBLIC_STRAPI_API_KEY } from "@/lib/constants";
 import { GET } from "../clientStrapi";
 import { BlocksContent } from "@strapi/blocks-react-renderer";
 
@@ -7,7 +8,7 @@ export type PageDonjon = {
 };
 
 export async function getPageDonjon(): Promise<PageDonjon | null> {
-  const resultat = await GET<PageDonjon>("/page-donjon");
+  const resultat = await GET<PageDonjon>("/page-donjon", PUBLIC_STRAPI_API_KEY);
 
   if (resultat.data === undefined) {
     console.error(
