@@ -46,8 +46,14 @@ const client: Client = async (
   }
 };
 
-export function GET<TBodyResponse>(url: string) {
-  return client<TBodyResponse>(RequestType.GET, url);
+export function GET<TBodyResponse>(url: string, apiKey?: string) {
+  const headers: HeadersInit = {
+    ...headersInit,
+    "Authorization": `Bearer ${apiKey}`,
+    
+  };
+
+  return client<TBodyResponse>(RequestType.GET, url, undefined, headers);
 }
 
 export function POST<TBodyResponse, TPayload>(
@@ -55,7 +61,6 @@ export function POST<TBodyResponse, TPayload>(
   data: TPayload,
   apiKey: string
 ) {
-
   const headers: HeadersInit = {
     ...headersInit,
     "Authorization": `Bearer ${apiKey}`,
