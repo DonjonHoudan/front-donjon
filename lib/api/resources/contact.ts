@@ -1,3 +1,4 @@
+import { PUBLIC_STRAPI_API_KEY } from "@/lib/constants";
 import { GET, POST } from "../clientStrapi";
 import { BlocksContent } from "@strapi/blocks-react-renderer";
 
@@ -5,11 +6,17 @@ export type PageContact = {
   contenu: BlocksContent;
 };
 
-export async function getPageContact(): Promise<PageContact|null> {
-  const resultat = await GET<PageContact>("/page-contact");
+export async function getPageContact(): Promise<PageContact | null> {
+  const resultat = await GET<PageContact>(
+    "/page-contact",
+    PUBLIC_STRAPI_API_KEY
+  );
 
   if (resultat.data === undefined) {
-    console.error("Erreur lors de la récupération de la page contact", resultat);
+    console.error(
+      "Erreur lors de la récupération de la page contact",
+      resultat
+    );
     return null;
   }
 
@@ -29,11 +36,14 @@ type ReponseMail = {
   errorMessage?: string;
 };
 
-export async function postMail(data: SendMail, token: string): Promise<ReponseMail> {
+export async function postMail(
+  data: SendMail,
+  token: string
+): Promise<ReponseMail> {
   if (!token) {
     throw new Error("Clé API STRAPI manquante");
   }
-  
+
   const resultat = await POST("/contacts", data, token);
 
   return {

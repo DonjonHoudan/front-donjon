@@ -1,8 +1,9 @@
+import { PUBLIC_STRAPI_API_KEY } from "@/lib/constants";
 import { GET } from "../clientStrapi";
 import { PageDonjon } from "./donjon";
 
 export async function getPageVisite(): Promise<PageDonjon | null> {
-  const resultat = await GET<PageDonjon>("/page-visite");
+  const resultat = await GET<PageDonjon>("/page-visite", PUBLIC_STRAPI_API_KEY);
 
   if (resultat.data === undefined) {
     console.error(
