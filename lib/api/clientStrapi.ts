@@ -15,9 +15,6 @@ const client: Client = async (
     let params: RequestInit = {
       method,
       headers,
-      next: {
-        revalidate: 1,
-      },
     };
 
     if (method === RequestType.POST) {
@@ -37,7 +34,12 @@ const client: Client = async (
       };
     }
 
-    return await response.json();
+    return {
+      ...(await response.json()),
+      next: {
+        revalidate: 1,
+      },
+    };
   } catch (err: any) {
     return {
       status: err.status || 500,
@@ -46,17 +48,21 @@ const client: Client = async (
   }
 };
 
-export function GET<TBodyResponse>(url: string, apiKey?: string) {
+export async function GET<TBodyResponse>(url: string, apiKey?: string) {
   const headers: HeadersInit = {
     ...headersInit,
     "Authorization": `Bearer ${apiKey}`,
-    
   };
 
-  return client<TBodyResponse>(RequestType.GET, url, undefined, headers);
+  try {
+    return await client<TBodyResponse>(RequestType.GET, url, undefined, headers);
+  } catch (err) {
+    console.error("GET request failed:", err);
+    throw err;
+  }
 }
 
-export function POST<TBodyResponse, TPayload>(
+export async function POST<TBodyResponse, TPayload>(
   url: string,
   data: TPayload,
   apiKey: string
@@ -66,5 +72,10 @@ export function POST<TBodyResponse, TPayload>(
     "Authorization": `Bearer ${apiKey}`,
   };
 
-  return client<TBodyResponse>(RequestType.POST, url, data, headers);
+  try {
+    return await client<TBodyResponse>(RequestType.POST, url, data, headers);
+  } catch (err) {
+    console.error("POST request failed:", err);
+    throw err;
+  }
 }
