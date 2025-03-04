@@ -7,10 +7,10 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { InputText } from "primereact/inputtext";
 import { InputTextarea } from "primereact/inputtextarea";
 import { FloatLabel } from "primereact/floatlabel";
-import { Button } from "primereact/button";
 import { SendMail } from "@/lib/api/resources/contact";
 import { RECAPTCHA_SITE_KEY } from "@/lib/constants";
 import { toast } from "react-toastify";
+import { Bouton } from "@/components/bouton";
 
 export function ContactForm() {
   const recaptchaRef = useRef<ReCAPTCHA>(null);
@@ -138,7 +138,9 @@ export function ContactForm() {
         onChange={handleChange}
         onExpired={handleExpired}
       />
-      <Button type="submit" label="Envoyer" disabled={!isVerified} />
+      <Bouton type="submit" disabled={!isVerified} >
+        Envoyer
+      </Bouton>
     </form>
   );
 }
