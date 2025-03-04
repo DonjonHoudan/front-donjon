@@ -70,7 +70,7 @@ function AffichageEvenement({ evenement }: Evenement) {
   return (
     <Link
       href={`${evenement.article ? `actualites` : `programmation`}/${data.slug}`}
-      className="relative w-[350px] h-[500px] lg:w-[450px] lg:h-[636px]"
+      className="relative w-[90vw] h-[80vh] max-w-[350px] max-h-[500px] lg:max-w-[450px] lg:max-h-[636px] object-cover"
     >
       <ImageStrapi
         src={data.image.url}
