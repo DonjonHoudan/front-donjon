@@ -30,7 +30,6 @@ const client: Client = async (
       return {
         status: response.status,
         errorMessage: response.statusText,
-        headers: headers,
       };
     }
 

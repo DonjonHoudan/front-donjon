@@ -5,8 +5,9 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { GA4_ID } from "@/lib/constants";
-import "./globals.css";
+import { ToastContainer } from "react-toastify";
 import CookieConsent from "./cookie-consent";
+import "./globals.css";
 
 const nunito = Nunito({ subsets: ["latin"] });
 
@@ -35,6 +36,7 @@ export default function RootLayout({
         <Analytics />
         <SpeedInsights />
         <CookieConsent />
+        <ToastContainer />
         {GA4_ID && <GoogleAnalytics gaId={GA4_ID} />}
       </body>
     </html>
