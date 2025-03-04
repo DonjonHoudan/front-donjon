@@ -10,6 +10,7 @@ import { FloatLabel } from "primereact/floatlabel";
 import { Button } from "primereact/button";
 import { SendMail } from "@/lib/api/resources/contact";
 import { RECAPTCHA_SITE_KEY } from "@/lib/constants";
+import { toast } from "react-toastify";
 
 export function ContactForm() {
   const recaptchaRef = useRef<ReCAPTCHA>(null);
@@ -67,6 +68,7 @@ export function ContactForm() {
         method: "POST",
         body: JSON.stringify(mail),
       }).then(() => {
+        toast.success("Votre message a bien été envoyé");
         resetForm();
       });
     },
