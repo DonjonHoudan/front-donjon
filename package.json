@@ -14,7 +14,7 @@
     "@strapi/blocks-react-renderer": "^1.0.2",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
-    "axios": "^1.8.2",
+    "axios": "^1.8.3",
     "clsx": "^2.1.1",
     "formik": "^2.4.6",
     "next": "14.2.24",
