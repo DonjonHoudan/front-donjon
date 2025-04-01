@@ -29,9 +29,9 @@ export default async function Programmation() {
             <H2 className="text-center">{evenement.titre}</H2>
             <Link href={`programmation/${evenement.slug}`} className="relative block w-[300px] h-[424px]">
               <ImageStrapi
-                src={evenement.image.url}
+                src={evenement.image?.url}
                 alt={evenement.titre}
-                blurDataUrl={evenement.image.formats.thumbnail.url}
+                blurDataUrl={evenement.image?.formats.thumbnail.url}
               />
             </Link>
             {evenement.lien_billeterie && (

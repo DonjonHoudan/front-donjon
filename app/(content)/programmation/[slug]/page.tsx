@@ -49,10 +49,10 @@ export default async function Evenement({ params }: EvenementProps) {
         )}
         <div className="relative block w-[350px] h-[494px] lg:w-[600px] lg:h-[848px]">
           <ImageStrapi
-            src={data.image.url}
+            src={data.image?.url}
             alt={data.titre}
             className="rounded"
-            blurDataUrl={data.image.formats.thumbnail.url}
+            blurDataUrl={data.image?.formats.thumbnail.url}
           />
         </div>
         <IframeYoutube iframe={data.lien_youtube} />

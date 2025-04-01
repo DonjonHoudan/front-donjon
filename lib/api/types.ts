@@ -35,7 +35,7 @@ export type Article = {
   titre: string;
   contenu: BlocksContent;
   slug: string;
-  image: Image;
+  image?: Image;
 };
 
 export type Programmation = {
@@ -45,7 +45,7 @@ export type Programmation = {
   lien_billeterie: string;
   lien_youtube: string;
   descriptif: BlocksContent;
-  image: Image;
+  image?: Image;
 };
 
 export type Image = {
@@ -62,3 +62,10 @@ export type Image = {
     };
   };
 };
+
+export type Configuration = {
+  nom_site: string;
+  description_site: string;
+  background: Image;
+  background_navbar: Image;
+}
