@@ -2,12 +2,19 @@ import Link from "next/link";
 import Image from "next/image";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 import { cn } from "@/lib/utils/cn";
+import { getConfiguration } from "@/lib/api/resources/configuration";
+import { getStrapiMedia } from "./imageStrapi";
 
-export function Navbar() {
+export async function Navbar() {
+  const configuration = await getConfiguration();
+  const background = configuration?.background_navbar
+    ? getStrapiMedia(configuration.background_navbar.url)
+    : "/donjon.jpg";
+
   return (
     <div className={cn("hidden", "lg:block lg:relative lg:h-[200px]")}>
       <Image
-        src="/donjon.jpg"
+        src={background}
         alt="Donjon de Houdan"
         width={1960}
         height={100}

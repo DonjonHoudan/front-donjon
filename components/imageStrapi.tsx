@@ -38,6 +38,6 @@ export const ImageStrapi = ({
   );
 };
 
-const getStrapiMedia = (url: string) => {
+export const getStrapiMedia = (url: string) => {
   return decodeURIComponent(`${STRAPI_IMAGE}${url}`);
 };

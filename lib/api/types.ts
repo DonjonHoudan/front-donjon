@@ -62,3 +62,10 @@ export type Image = {
     };
   };
 };
+
+export type Configuration = {
+  nom_site: string;
+  description_site: string;
+  background: Image;
+  background_navbar: Image;
+}
