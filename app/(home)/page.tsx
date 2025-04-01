@@ -46,7 +46,7 @@ type Evenement = {
 
 type EvenementAffiche = {
   slug: string;
-  image: ImageType;
+  image?: ImageType;
 };
 
 function AffichageEvenement({ evenement }: Evenement) {
@@ -80,14 +80,14 @@ function AffichageEvenement({ evenement }: Evenement) {
       className="relative w-[90vw] h-[80vh] max-w-[350px] max-h-[500px] lg:max-w-[450px] lg:max-h-[636px] object-cover"
     >
       <ImageStrapi
-        src={data.image.url}
+        src={data.image?.url}
         alt="Contenu mis en avant"
         overrideSrc={`
-        ${data.image.formats.medium.url} 450px,
-        ${data.image.formats.small.url} 350px
+        ${data.image?.formats.medium.url} 450px,
+        ${data.image?.formats.small.url} 350px
       `}
         className="rounded-xl border border-black drop-shadow-xl"
-        blurDataUrl={data.image.formats.thumbnail.url}
+        blurDataUrl={data.image?.formats.thumbnail.url}
       />
     </Link>
   );
