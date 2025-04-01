@@ -2,7 +2,7 @@ import Image from "next/image";
 import { STRAPI_IMAGE } from "@/lib/constants";
 
 type ImageStrapiProps = {
-  src: string;
+  src?: string;
   alt: string;
   width?: number;
   height?: number;
@@ -24,7 +24,7 @@ export const ImageStrapi = ({
 }: ImageStrapiProps) => {
   return (
     <Image
-      src={getStrapiMedia(src)}
+      src={src ? getStrapiMedia(src) : "/logo-donjon.png"}
       alt={alt}
       fill={true}
       width={width}

@@ -11,16 +11,12 @@ import "./globals.css";
 
 const nunito = Nunito({ subsets: ["latin"] });
 
-export async function generateMetadata(
-  parent: ResolvingMetadata
-): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
   const configuration = await getConfiguration();
-  const meta: Metadata = {
+  return {
     title: configuration?.nom_site,
     description: configuration?.description_site,
-  }
-
-  return meta;
+  };
 }
 
 export default function RootLayout({
