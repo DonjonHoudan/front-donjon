@@ -9,23 +9,23 @@ import Loading from "@/app/loading";
 import { IframeYoutube } from "./_components/iframe";
 
 type EvenementProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
-export async function generateMetadata(
-  { params }: EvenementProps,
-): Promise<Metadata> {
+export async function generateMetadata(props: EvenementProps): Promise<Metadata> {
+  const params = await props.params;
   const data = await getProgrammation(params.slug);
- 
+
   return {
     title: data?.titre,
     description: data?.titre,
   }
 }
 
-export default async function Evenement({ params }: EvenementProps) {
+export default async function Evenement(props: EvenementProps) {
+  const params = await props.params;
   const data = await getProgrammation(params.slug);
 
   if (!data) {
