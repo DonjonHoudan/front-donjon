@@ -19,9 +19,9 @@ export default async function PreparezVotreVisite() {
   }
 
   return (
-    <section className="min-h-screen mb-[120px] lg:mt-[-200px] lg:mb-0 lg:pt-[200px]">
+    <section className="mb-[120px] lg:mt-[-200px] lg:mb-0 lg:pt-[200px]">
       <H1 className="py-[50px] text-center">{data.titre}</H1>
-      <div className="px-[20px] mb-[130px] lg:px-[20vw] lg:mb-[50px]">
+      <div className="px-[20px] lg:px-[20vw] lg:mb-[50px]">
         <RichTextStrapi content={data.contenu} />
       </div>
     </section>

@@ -15,9 +15,9 @@ export default async function PageContact() {
   const data = await getPageContact();
 
   return (
-    <section className="min-h-screen lg:mt-[-200px] lg:pt-[200px]">
+    <section className="lg:mt-[-200px] lg:pt-[200px]">
       <H1 className="my-[50px] text-center">Contact</H1>
-      <div className="px-[20px] mb-[130px] lg:px-[20vw] lg:mb-[50px]">
+      <div className="px-[20px] lg:px-[20vw] lg:mb-[50px]">
         {data !== null && <RichTextStrapi content={data.contenu} />}
         <div className="flex justify-center">
           <ContactForm />
