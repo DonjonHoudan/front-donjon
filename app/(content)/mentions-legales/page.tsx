@@ -1,18 +1,18 @@
 import { Metadata } from "next";
 import { RichTextStrapi } from "@/components/richTextStrapi";
 import { H1 } from "@/components/titles";
-import { getPageDonjon } from "@/lib/api/resources/donjon";
 import Loading from "@/app/loading";
+import { getPageMentions } from "@/lib/api/resources/mentions";
 
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "Histoire | Le Donjon de Houdan",
-  description: "Découvrez l'histoire du Donjon de Houdan du 12ème siècle à nos jours.",
+  title: "Mentions légales | Le Donjon de Houdan",
+  description: "Mentions légales du Donjon de Houdan.",
 };
 
-export default async function LeDonjon() {
-  const data = await getPageDonjon();
+export default async function MentionsLegales() {
+  const data = await getPageMentions();
 
   if (!data) {
     return <Loading />;

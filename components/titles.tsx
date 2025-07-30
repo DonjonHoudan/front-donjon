@@ -12,3 +12,7 @@ export function H1({ children, className }: TitleProps) {
 export function H2({ children, className }: TitleProps) {
   return <h2 className={cn(className, "text-2xl")}>{children}</h2>;
 }
+
+export function H3({ children, className }: TitleProps) {
+  return <h3 className={cn(className, "text-xl")}>{children}</h3>;
+}
