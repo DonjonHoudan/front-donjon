@@ -6,7 +6,7 @@ import { Footer } from "@/components/footer";
 import { cn } from "@/lib/utils/cn";
 import "../globals.css";
 import "primereact/resources/primereact.min.css";
-import "primereact/resources/themes/lara-light-indigo/theme.css";
+import "primereact/resources/themes/lara-light-blue/theme.css";
 
 export const metadata: Metadata = {
   title: "Le Donjon de Houdan",
@@ -23,7 +23,9 @@ export default function ContentLayout({
     <section lang="fr">
       <Navbar />
       <NavbarMobile />
-      <PrimeReactProvider>{children}</PrimeReactProvider>
+      <PrimeReactProvider>
+        {children}
+      </PrimeReactProvider>
       <Footer
         className={cn(
           "h-[150px] bg-gray-300 bg-opacity-50 pt-[20px] pb-[225px] flex flex-col items-center mt-[50px]",
