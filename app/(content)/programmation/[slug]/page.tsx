@@ -37,7 +37,7 @@ export default async function Evenement(props: EvenementProps) {
       <H1 className="my-[50px] text-center">{data.titre}</H1>
       <div
         className={cn(
-          "flex flex-col items-center px-[10px] gap-[30px] mb-[130px]",
+          "flex flex-col items-center px-[10px] gap-[30px]",
           "lg:px-[20vh] lg:mb-[50px]"
         )}
       >

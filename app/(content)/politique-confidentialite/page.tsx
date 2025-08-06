@@ -1,18 +1,18 @@
 import { Metadata } from "next";
 import { RichTextStrapi } from "@/components/richTextStrapi";
 import { H1 } from "@/components/titles";
-import { getPageDonjon } from "@/lib/api/resources/donjon";
 import Loading from "@/app/loading";
+import { getPagePolitique } from "@/lib/api/resources/politique";
 
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "Histoire | Le Donjon de Houdan",
-  description: "Découvrez l'histoire du Donjon de Houdan du 12ème siècle à nos jours.",
+  title: "Politique de confidentialité | Le Donjon de Houdan",
+  description: "Politique de confidentialité du Donjon de Houdan.",
 };
 
-export default async function LeDonjon() {
-  const data = await getPageDonjon();
+export default async function PolitiqueConfidentialite() {
+  const data = await getPagePolitique();
 
   if (!data) {
     return <Loading />;

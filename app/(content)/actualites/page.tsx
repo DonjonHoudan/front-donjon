@@ -18,11 +18,11 @@ export default async function Actualites() {
   const data = await getPageActualites();
 
   return (
-    <section className="min-h-screen lg:mt-[-200px] lg:pt-[200px]">
+    <section className="lg:mt-[-200px] lg:pt-[200px]">
       <H1 className="my-[50px] text-center">Actualités</H1>
       <div
         className={cn(
-          "flex flex-wrap justify-around px-[10px] mb-[130px] gap-[30px]",
+          "flex flex-wrap justify-around px-[10px] gap-[30px]",
           "lg:px-[20vh] lg:mb-[50px]"
         )}
       >
