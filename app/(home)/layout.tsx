@@ -1,8 +1,10 @@
 import { NavbarHome } from "@/components/navbarHome";
 import { NavbarMobile } from "@/components/navbarMobile";
 import { Footer } from "@/components/footer";
-import "../globals.css";
 import { cn } from "@/lib/utils/cn";
+import "../globals.css";
+import "primereact/resources/primereact.min.css";
+import "primereact/resources/themes/lara-light-blue/theme.css";
 
 export default function HomeLayout({
   children,
