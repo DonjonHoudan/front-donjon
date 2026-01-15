@@ -9,7 +9,7 @@ const client: Client = async (
   method = RequestType.GET,
   url = "",
   data = undefined,
-  headers = headersInit,
+  headers = headersInit
 ) => {
   try {
     let params: RequestInit = {
@@ -50,11 +50,16 @@ const client: Client = async (
 export async function GET<TBodyResponse>(url: string, apiKey?: string) {
   const headers: HeadersInit = {
     ...headersInit,
-    "Authorization": `Bearer ${apiKey}`,
+    Authorization: `Bearer ${apiKey}`,
   };
 
   try {
-    return await client<TBodyResponse>(RequestType.GET, url, undefined, headers);
+    return await client<TBodyResponse>(
+      RequestType.GET,
+      url,
+      undefined,
+      headers
+    );
   } catch (err) {
     console.error("GET request failed:", err);
     throw err;
@@ -68,7 +73,7 @@ export async function POST<TBodyResponse, TPayload>(
 ) {
   const headers: HeadersInit = {
     ...headersInit,
-    "Authorization": `Bearer ${apiKey}`,
+    Authorization: `Bearer ${apiKey}`,
   };
 
   try {
