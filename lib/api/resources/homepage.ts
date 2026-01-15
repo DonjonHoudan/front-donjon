@@ -4,7 +4,7 @@ import { PUBLIC_STRAPI_API_KEY } from "@/lib/constants";
 
 export async function getHomePage(): Promise<PageAccueil | null> {
   const resultat = await GET<PageAccueil>(
-    "/home-page?populate[article][populate]=image&populate[programmation][populate]=image",
+    "/home-page?populate[articles][populate]=image&populate[programmations][populate]=image",
     PUBLIC_STRAPI_API_KEY
   );
 
