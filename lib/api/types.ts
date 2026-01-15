@@ -8,8 +8,8 @@ export enum RequestType {
 }
 
 export type PageAccueil = {
-  article: Article;
-  programmation: Programmation;
+  articles: Article[];
+  programmations: Programmation[];
 };
 
 export type ClientResponse<T> = {
