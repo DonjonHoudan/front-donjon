@@ -10,6 +10,7 @@ type ImageStrapiProps = {
   overrideSrc?: string;
   className?: string;
   blurDataUrl?: string;
+  fill?: boolean;
 };
 
 export const ImageStrapi = ({
@@ -20,13 +21,14 @@ export const ImageStrapi = ({
   sizes,
   overrideSrc,
   className,
-  blurDataUrl
+  blurDataUrl,
+  fill = true,
 }: ImageStrapiProps) => {
   return (
     <Image
       src={src ? getStrapiMedia(src) : "/logo-donjon.png"}
       alt={alt}
-      fill={true}
+      fill={fill}
       width={width}
       height={height}
       sizes={sizes}

@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 import { getPageActualites } from "@/lib/api/resources/actualites";
-import { getPageProgrammation } from "@/lib/api/resources/programmations";
+import { getProgrammation } from "@/lib/api/resources/programmations";
 
 type Sitemap = {
   url: string;
@@ -63,7 +63,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
 
   const sitemapProgrammation: Sitemap[] = [];
-  const programmations = await getPageProgrammation();
+  const programmations = await getProgrammation();
   if (programmations) {
     for (const programmation of programmations) {
       sitemapProgrammation.push({
