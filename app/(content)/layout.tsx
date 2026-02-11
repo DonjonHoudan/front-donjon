@@ -1,12 +1,8 @@
 import type { Metadata } from "next";
-import { PrimeReactProvider } from "primereact/api";
 import { Navbar } from "@/components/navbar";
 import { NavbarMobile } from "@/components/navbarMobile";
 import { Footer } from "@/components/footer";
 import { cn } from "@/lib/utils/cn";
-import "../globals.css";
-import "primereact/resources/primereact.min.css";
-import "primereact/resources/themes/lara-light-blue/theme.css";
 
 export const metadata: Metadata = {
   title: "Le Donjon de Houdan",
@@ -23,13 +19,11 @@ export default function ContentLayout({
     <section lang="fr">
       <Navbar />
       <NavbarMobile />
-      <PrimeReactProvider>
-        {children}
-      </PrimeReactProvider>
+      {children}
       <Footer
         className={cn(
-          "h-[150px] bg-gray-300 bg-opacity-50 pt-[20px] pb-[225px] flex flex-col items-center mt-[50px]",
-          "lg:flex-row lg:gap-x-[20px] lg:justify-center lg:h-[75px] lg:pb-[0px] lg:pt-[0px]"
+          "h-[150px] bg-gray-300/50 pt-[20px] pb-[225px] flex flex-col items-center mt-[50px]",
+          "lg:flex-row lg:gap-x-[20px] lg:justify-center lg:h-[75px] lg:pb-[0px] lg:pt-[0px]",
         )}
       />
     </section>
