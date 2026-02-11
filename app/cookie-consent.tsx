@@ -11,6 +11,7 @@ const CookieConsent = () => {
   useEffect(() => {
     const savedConsent = localStorage.getItem("cookieConsent");
     if (savedConsent) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- SSR-safe: must read localStorage after mount to avoid hydration mismatch
       setConsent(JSON.parse(savedConsent));
     }
     setInitialized(true);

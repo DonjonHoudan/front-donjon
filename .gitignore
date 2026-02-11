@@ -38,3 +38,4 @@ next-env.d.ts
 # plugins
 .history
 CLAUDE.md
+.claude
