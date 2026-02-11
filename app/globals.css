@@ -1,14 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss" layer(tailwind);
 
 body {
   color: black;
   background: #ebebeb;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
 }

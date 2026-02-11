@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { GA4_ID } from "@/lib/constants";
 import { ToastContainer } from "react-toastify";
 import CookieConsent from "./cookie-consent";
 import { getConfiguration } from "@/lib/api/resources/configuration";
 import "./globals.css";
+import "primereact/resources/primereact.min.css";
+import "primereact/resources/themes/lara-light-blue/theme.css";
 
 const nunito = Nunito({ subsets: ["latin"] });
 
@@ -36,8 +36,6 @@ export default function RootLayout({
       </head>
       <body className={nunito.className}>
         {children}
-        <Analytics />
-        <SpeedInsights />
         <CookieConsent />
         <ToastContainer />
         {GA4_ID && <GoogleAnalytics gaId={GA4_ID} />}
