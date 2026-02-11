@@ -20,7 +20,7 @@ export async function Navbar() {
         height={100}
         className="absolute top-0 left-0 w-full h-full object-cover"
       />
-      <div className="relative top-[30px] flex items-center justify-between px-[30px] h-[75px] bg-black bg-opacity-60 text-white">
+      <div className="relative top-[30px] flex items-center justify-between px-[30px] h-[75px] bg-black/60 text-white">
         <Link href="/">
           <Image
             src="/logo-donjon.png"
