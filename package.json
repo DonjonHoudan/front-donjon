@@ -36,7 +36,7 @@
     "@types/react-google-recaptcha": "^2.1.9",
     "@types/react-toastify": "^4.1.0",
     "eslint": "^9.39.4",
-    "eslint-config-next": "^16.1.6",
+    "eslint-config-next": "^16.2.1",
     "husky": "^9.1.7",
     "typescript": "^5.9.3"
   },
