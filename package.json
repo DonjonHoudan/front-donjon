@@ -10,19 +10,19 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@next/third-parties": "^16.2.3",
+    "@next/third-parties": "^16.2.4",
     "@strapi/blocks-react-renderer": "^1.0.2",
     "@tailwindcss/postcss": "^4.2.2",
-    "axios": "^1.15.0",
+    "axios": "^1.15.1",
     "clsx": "^2.1.1",
     "formik": "^2.4.9",
-    "next": "^16.2.3",
+    "next": "^16.2.4",
     "primereact": "^10.9.7",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "react-google-recaptcha": "^3.1.0",
     "react-icons": "^5.6.0",
-    "react-toastify": "^11.0.5",
+    "react-toastify": "^11.1.0",
     "tailwind-merge": "^3.5.0",
     "tailwindcss": "^4.2.2",
     "yup": "^1.7.1"
@@ -33,7 +33,7 @@
     "@types/react-dom": "19.2.3",
     "@types/react-google-recaptcha": "^2.1.9",
     "eslint": "^9.39.4",
-    "eslint-config-next": "^16.2.3",
+    "eslint-config-next": "^16.2.4",
     "husky": "^9.1.7",
     "typescript": "^5.9.3"
   },
