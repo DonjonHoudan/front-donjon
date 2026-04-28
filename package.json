@@ -12,7 +12,7 @@
   "dependencies": {
     "@next/third-parties": "^16.2.4",
     "@strapi/blocks-react-renderer": "^1.0.2",
-    "@tailwindcss/postcss": "^4.2.2",
+    "@tailwindcss/postcss": "^4.2.4",
     "axios": "^1.15.1",
     "clsx": "^2.1.1",
     "formik": "^2.4.9",
