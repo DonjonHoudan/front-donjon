@@ -13,7 +13,7 @@
     "@next/third-parties": "^16.2.4",
     "@strapi/blocks-react-renderer": "^1.0.2",
     "@tailwindcss/postcss": "^4.2.4",
-    "axios": "^1.15.2",
+    "axios": "^1.16.0",
     "clsx": "^2.1.1",
     "formik": "^2.4.9",
     "next": "^16.2.4",
