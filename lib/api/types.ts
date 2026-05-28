@@ -46,6 +46,8 @@ export type Programmation = {
   lien_youtube: string;
   descriptif: BlocksContent;
   image?: Image;
+  date_debut?: string;
+  date_fin?: string;
 };
 
 export type Image = {
