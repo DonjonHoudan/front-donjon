@@ -30,7 +30,7 @@
   "devDependencies": {
     "@types/node": "^25.9.3",
     "@types/react": "19.2.17",
-    "@types/react-dom": "19.2.3",
+    "@types/react-dom": "19.2.4",
     "@types/react-google-recaptcha": "^2.1.9",
     "eslint": "^9.39.4",
     "eslint-config-next": "^16.2.9",
@@ -39,7 +39,7 @@
   },
   "overrides": {
     "@types/react": "19.2.17",
-    "@types/react-dom": "19.2.3",
+    "@types/react-dom": "19.2.4",
     "next": {
       "postcss": "^8.5.10"
     }
