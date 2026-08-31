@@ -17,7 +17,7 @@
     "clsx": "^2.1.1",
     "formik": "^2.4.9",
     "next": "^16.3.1",
-    "primereact": "^10.9.8",
+    "primereact": "^10.9.9",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-google-recaptcha": "^3.1.0",
