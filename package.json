@@ -10,13 +10,13 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@next/third-parties": "^16.3.1",
+    "@next/third-parties": "^16.4.0",
     "@strapi/blocks-react-renderer": "^1.0.2",
     "@tailwindcss/postcss": "^4.3.1",
     "axios": "^1.19.0",
     "clsx": "^2.1.1",
     "formik": "^2.4.9",
-    "next": "^16.3.1",
+    "next": "^16.4.0",
     "primereact": "^10.9.8",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
@@ -33,7 +33,7 @@
     "@types/react-dom": "19.2.4",
     "@types/react-google-recaptcha": "^2.1.9",
     "eslint": "^9.39.4",
-    "eslint-config-next": "^16.3.1",
+    "eslint-config-next": "^16.4.0",
     "husky": "^9.1.7",
     "typescript": "^5.9.3"
   },
