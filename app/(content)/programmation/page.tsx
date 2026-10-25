@@ -107,7 +107,7 @@ export default async function ProgrammationPage() {
                 <ImageStrapi
                   src={evenement.image?.url}
                   alt={evenement.titre}
-                  blurDataUrl={evenement.image?.formats.thumbnail.url}
+                  blurDataUrl={evenement.image?.formats?.thumbnail?.url}
                   className={estPasse ? "grayscale" : undefined}
                 />
               </Link>
@@ -124,7 +124,7 @@ export default async function ProgrammationPage() {
             <ImageStrapi
               src={recrutement.recrutement?.url}
               alt="Recrutement"
-              blurDataUrl={recrutement.recrutement?.formats.thumbnail.url}
+              blurDataUrl={recrutement.recrutement?.formats?.thumbnail?.url}
               width={500}
               height={90}
               fill={false}

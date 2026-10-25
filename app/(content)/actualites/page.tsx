@@ -40,7 +40,7 @@ export default async function Actualites() {
                 <ImageStrapi
                   src={evenement.image?.url}
                   alt={evenement.titre}
-                  blurDataUrl={evenement.image?.formats.thumbnail.url}
+                  blurDataUrl={evenement.image?.formats?.thumbnail?.url}
                 />
               </Link>
           </Card>
