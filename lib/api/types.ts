@@ -53,16 +53,16 @@ export type Programmation = {
 export type Image = {
   url: string;
   formats: {
-    small: {
+    small?: {
       url: string;
     };
-    medium: {
+    medium?: {
       url: string;
     };
-    thumbnail: {
+    thumbnail?: {
       url: string;
     };
-  };
+  } | null;
 };
 
 export type Configuration = {

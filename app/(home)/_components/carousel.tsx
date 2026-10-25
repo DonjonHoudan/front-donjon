@@ -54,12 +54,9 @@ export default function CarouselEvenement({ evenements }: Evenement) {
           <ImageStrapi
             src={data.image?.url}
             alt="Contenu mis en avant"
-            overrideSrc={`
-            ${data.image?.formats.medium.url} 450px,
-            ${data.image?.formats.small.url} 350px
-          `}
+            sizes="(min-width: 1024px) 500px, 100vw"
             className="rounded-xl border border-black drop-shadow-xl"
-            blurDataUrl={data.image?.formats.thumbnail.url}
+            blurDataUrl={data.image?.formats?.thumbnail?.url}
           />
         </Link>
       </div>
